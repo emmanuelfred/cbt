@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import logo from '../../../Assets/desktop-logo.png'
 import { Link } from 'react-router-dom'
-import DropdownMenu from '../../DropdownMenu/DropdownMenu'
+
 import './ScrolNav.css'
 import ProfileDropdown from '../ProfileDropdown/ProfileDropdown'
 function ScrolNav() {

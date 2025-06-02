@@ -23,6 +23,7 @@ function Main_Nav() {
             <AiOutlineSearch size={30} color='#15253a' />
             <input type="search" placeholder="What's on you mind" />
             </div>
+             <Link to="/classroom">Classroom</Link>
             <Link to={'/blog'}>Latest News</Link>
 
         </div>

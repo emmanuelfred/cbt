@@ -9,7 +9,7 @@ const MobileHeader = () => {
   
     useEffect(() => {
       const handleScroll = () => {
-        setShowMainNav(window.scrollY > 50); // Change threshold as needed
+        setShowMainNav(window.scrollY > 30); // Change threshold as needed
       };
   
       window.addEventListener('scroll', handleScroll);
