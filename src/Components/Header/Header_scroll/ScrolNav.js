@@ -32,13 +32,7 @@ function ScrolNav() {
             <Link to="/about">About Us</Link> 
             <hr />
           </li>
-          <li 
-            onClick={() => setActive("course")} 
-            className={active === "course" ? "active" : "in_active"}
-          >
-            <Link to="/local-market">Courses</Link>
-            <hr />
-          </li>
+          
           <li 
             onClick={() => setActive("class-room")} 
             className={active === "class-room" ? "active" : "in_active"}
