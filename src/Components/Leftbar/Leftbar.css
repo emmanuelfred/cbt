@@ -1,0 +1,35 @@
+.Leftbar{
+    height: 100vh;
+    background-color: var(--bg);
+    
+    width: 300px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 120px;
+ 
+}
+.Leftbar li{
+     padding: 15px;
+
+}
+.Leftbar li a{
+   
+    text-decoration: none;
+    color: var( --primary-color);
+    font-weight: 600;
+
+}
+.Leftbar li:hover{
+    background-color: #f4835d10;
+    border-radius: 10px;
+    
+}
+@media (max-width:700px) {
+  .Leftbar{
+        display: none;
+    }
+
+    
+}

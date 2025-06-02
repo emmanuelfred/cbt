@@ -1,0 +1,74 @@
+import React, { useState } from 'react'
+import logo from '../../../Assets/desktop-logo.png'
+import { Link } from 'react-router-dom'
+import DropdownMenu from '../../DropdownMenu/DropdownMenu'
+import './ScrolNav.css'
+import ProfileDropdown from '../ProfileDropdown/ProfileDropdown'
+function ScrolNav() {
+    const [active,setActive] = useState('Home')
+  return (
+    <div className='ScrolNav'>
+      <div className='brand_logo'>
+      <Link to={'/Home'}>
+          <img src={logo} alt=""  />
+        </Link>
+
+      </div>
+    
+       
+      
+        <ul className="scrolnav-link-container">
+          <li 
+            onClick={() => setActive("Home")} 
+            className={active === "Home" ? "active" : "in_active"}
+          >
+            <Link to="/">Home</Link> 
+            <hr />
+          </li>
+          <li 
+            onClick={() => setActive("about")} 
+            className={active === "about" ? "active" : "in_active"}
+          >
+            <Link to="/about">About Us</Link> 
+            <hr />
+          </li>
+          <li 
+            onClick={() => setActive("course")} 
+            className={active === "course" ? "active" : "in_active"}
+          >
+            <Link to="/local-market">Courses</Link>
+            <hr />
+          </li>
+          <li 
+            onClick={() => setActive("class-room")} 
+            className={active === "class-room" ? "active" : "in_active"}
+          >
+          
+            <DropdownMenu/>
+           
+            <hr />
+          </li>
+
+          <li 
+            onClick={() => setActive("pricing")} 
+            className={active === "pricing" ? "active" : "in_active"}
+          >
+            <Link to="/pricing">Pricing</Link>
+            <hr />
+          </li>
+          <li 
+            onClick={() => setActive("Direct Import")} 
+            className={active === "Direct Import" ? "active" : "in_active"}
+          >
+            <Link to="/blog">Latest News</Link>
+            <hr />
+          </li>
+        </ul>
+        <ProfileDropdown/>
+
+
+    </div>
+  )
+}
+
+export default ScrolNav

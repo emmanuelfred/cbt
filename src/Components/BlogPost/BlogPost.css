@@ -1,0 +1,37 @@
+.post__thumbnail img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+}
+.post__title{
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--primary-color-light);
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  
+}
+.post__title a{
+    text-decoration: none;
+}
+.post__meta-data{
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.post__excerpt p{
+    font-size: 1.1rem !important;
+   
+    margin-bottom: 20px;
+    line-height: 1;
+}

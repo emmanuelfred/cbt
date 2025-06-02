@@ -1,0 +1,21 @@
+header{
+    position: fixed;
+    width: 100%;
+     top: 0;
+     left: 0;
+     z-index: 1000;
+}
+.mobile-header{
+    display: none !important;
+}
+.Main_Nav,.ScrolNav{
+    display: flex !important;
+}
+@media (max-width:1200px) {
+    .mobile-header{
+        display: block !important;
+    }
+    .Main_Nav,.ScrolNav{
+        display: none !important;
+    }
+}

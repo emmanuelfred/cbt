@@ -1,0 +1,115 @@
+.student-page{
+    display: flex;
+   
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+}
+.main-content{
+    flex: 1;
+    padding-top: 120px;
+}
+.leftbar-content,.rightbar-content{
+    position: sticky;
+    height: 100vh;
+    top: 0;
+}
+.Leftbar{
+    height: 100%;
+    background-color: var(--bg);
+    
+    width: 300px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 120px;
+ 
+}
+.Leftbar li{
+     padding: 15px;
+
+}
+.Leftbar li a{
+   
+    text-decoration: none;
+    color: var( --primary-color);
+    font-weight: 600;
+
+}
+.Leftbar li:hover{
+    background-color: #f4835d10;
+    border-radius: 10px;
+    
+}
+.Leftbar .active{
+     background-color: #f4835d10;
+}
+.classroom-header{
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: sticky;
+    top: 84px;
+    width: 100%;
+    background-color: var(--bg);
+    z-index: 90;
+}
+@media (max-width:700px) {
+  .Leftbar{
+       padding-top: 0;
+    }
+    .classroom-header{
+        display: flex;
+        margin-top: 84px;
+    }
+    .classroom-header div{
+        cursor: pointer;
+        color: #20537c;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    .leftbar-content{
+        display: none;
+        position: fixed;
+        top: 20%;
+        left: 0;
+         height: calc(100vh - 155px);
+    }
+    .main-content{
+        padding-top: 0;
+    }
+
+    
+}
+.openbar{
+    display: block;
+    transition: all 0.5s ease;
+}
+@media  (max-width: 568px) {
+  .rightbar-content{
+        display: none;
+    }
+    
+  
+    
+}
+.Leftbar li {
+  margin: 10px 0;
+  position: relative;
+}
+
+
+
+
+
+.Leftbar a {
+ 
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

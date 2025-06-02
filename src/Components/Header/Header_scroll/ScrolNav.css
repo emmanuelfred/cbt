@@ -1,0 +1,114 @@
+.ScrolNav{
+ 
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 3%;
+    height: 100px;
+ 
+ 
+    transition: all 0.3s ease-in-out;
+    animation: zoomup 0.5s ease-in-out forwards;
+   
+   
+}
+.brand_logo{
+    width: 70px;
+    height: 70px;
+    position: relative;
+
+}
+.brand_logo img{
+    width: 150px;
+  
+  
+  
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+}
+.scrolnav-link-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    list-style: none;
+    gap: 20px;
+
+
+}
+.scrolnav-link-container li{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+ 
+  }
+  .scrolnav-link-container li a{
+    color: var(--primary-color-light);
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+  }
+  .scrolnav-link-container li hr{
+    display: none;
+    margin: 0;
+  }
+  .scrolnav-link-container .active a{
+    transition: all 0.3s ease-in-out;
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 1.1em;
+  }
+  .scrolnav-link-container .active span{
+    transition: all 0.3s ease-in-out;
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 1.1em;
+
+  }
+  .scrolnav-link-container .active hr{
+  
+    display: block;
+    animation: zoomup 0.5s ease-in-out forwards;
+    border: none;
+    width: 80%;
+    height: 3px;
+    border-radius: 15px;
+    background: var(--secondary-color);
+   
+  }
+
+header .btn-container{
+    width: auto;
+    min-width: 300px;
+}
+header .btn-container a{
+    width: 100%;
+}
+  @keyframes zoomup {
+    0%{
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    
+  }
+  @keyframes zoomout {
+    0%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    
+  }

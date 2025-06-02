@@ -1,0 +1,12 @@
+.question-number
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 100px;
+}
+.question-number button{
+    background: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+}

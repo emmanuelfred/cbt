@@ -1,0 +1,52 @@
+
+.blog-section {
+    padding: 2rem;
+
+    text-align: center;
+    background: linear-gradient(rgba(21, 37, 58,0.8),rgba(21, 37, 58, 0.899)),url(../../Assets/banner/banner2.png) no-repeat ;
+
+    background-position: left;
+        background-color: #15253a;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+    color: #fff;
+  }
+  .section-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff !important;
+  }
+  .section-title .highlighted {
+    color: #f4825d;
+    position: relative;
+  }
+  .section-description {
+
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 1.3rem;
+  }
+  .blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+  .blog-post img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .blog-content {
+    margin-top: 10px;
+  }
+  .blog-content h3  a{
+    font-size: 18px;
+    color: #f4825d;
+  }
+  .meta {
+    font-size: 12px;
+    color: #fff;
+  }
+  
