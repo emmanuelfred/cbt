@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './MobileHeader.css';
 import logo from '../../../Assets/mobile-logo.png'
+import { Link } from 'react-router-dom';
 
 const MobileHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,7 +11,7 @@ const MobileHeader = () => {
   return (
     <div className="mobile-header">
       <div className="header-bar">
-        <div className="logo"> <img src={logo} alt=""  /></div>
+        <Link to={'/'} className="logo"> <img src={logo} alt=""  /></Link>
         <button className="menu-toggle" onClick={toggleMenu}>
           ☰
         </button>

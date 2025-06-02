@@ -5,7 +5,7 @@ import { FaUsers, FaBook, FaUserGraduate ,FaChalkboardTeacher} from 'react-icons
 import img1 from '../Assets/hero/hero2.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import ScrollTest from './ScrollTest';
+
 
 const statsData = [
   { icon: <FaUsers />, label: 'Student', target: 1027 },
@@ -91,7 +91,7 @@ function Hero() {
      
 
     </div>
-    <ScrollTest/>
+   
     </>
   );
 }
