@@ -2,20 +2,26 @@
     position: relative;
     z-index: 100;
   }
-  
+  .shownav{
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+     background-color: white;
+     transition: all 0.3s ease-in-out;
+    animation: zoomup 0.5s ease-in-out forwards;
+
+  }
   .header-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
+ 
     padding: 10px 20px;
     color: white;
-     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    
   }
   
   .logo {
     font-weight: bold;
-   width: 50px;
+   width: 40px;
   }
   .logo img{
     width: 100%;
@@ -85,5 +91,27 @@
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+  }
+    @keyframes zoomup {
+    0%{
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    
+  }
+  @keyframes zoomout {
+    0%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    
   }
   
