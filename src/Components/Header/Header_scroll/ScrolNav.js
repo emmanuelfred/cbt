@@ -44,7 +44,7 @@ function ScrolNav() {
             className={active === "class-room" ? "active" : "in_active"}
           >
           
-            <DropdownMenu/>
+            <Link to="/classroom">Classroom</Link>
            
             <hr />
           </li>
@@ -54,6 +54,13 @@ function ScrolNav() {
             className={active === "pricing" ? "active" : "in_active"}
           >
             <Link to="/pricing">Pricing</Link>
+            <hr />
+          </li>
+          <li 
+            onClick={() => setActive("Contact")} 
+            className={active === "contact" ? "active" : "in_active"}
+          >
+            <Link to="/pricing">Contact</Link>
             <hr />
           </li>
           <li 

@@ -45,13 +45,13 @@
     height: 100vh;
     background-color: #fff;
     color: #20537c;
-    padding-top: 60px;
+    padding-top: 20px;
     transition: all 0.3s ease;
     opacity: 0;
     visibility: hidden;
     z-index: 100;
     border-radius: 10px;
-    text-align: right;
+    
   }
   
   .side-menu.open {
@@ -71,7 +71,7 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   
-  .side-menu a {
+  .side-menu  li a {
     color: #20537c;
     text-decoration: none;
   }
