@@ -89,6 +89,7 @@
 .openbar{
     display: block;
     transition: all 0.5s ease;
+    z-index: 100;
 }
 @media  (max-width: 568px) {
   .rightbar-content{

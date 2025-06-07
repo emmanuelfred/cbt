@@ -56,7 +56,7 @@ function Hero() {
             </p>
             <div className='btn-container'>
               <a href='#' class="fancy-button ">Explore courses</a>
-              <a href='#' className='reveal-button  '>Get Started</a>
+              <a href='#' className='reveal-button  '>Take CBT</a>
             </div>
          
           

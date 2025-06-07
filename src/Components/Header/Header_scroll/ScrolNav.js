@@ -54,7 +54,7 @@ function ScrolNav() {
             onClick={() => setActive("Contact")} 
             className={active === "contact" ? "active" : "in_active"}
           >
-            <Link to="/pricing">Contact</Link>
+            <Link to="/contact-us">Contact</Link>
             <hr />
           </li>
           <li 

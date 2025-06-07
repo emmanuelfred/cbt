@@ -18,6 +18,8 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import SingleBlog from "./Pages/SingleBlog";
 import MobileHeader from "./Components/Header/Mobile/MobileHeader";
 import Classroom from "./Pages/Classroom";
+import ContactUs from "./Pages/ContactUs";
+
 
 // List of routes where header/footer should be hidden
 const HIDDEN_LAYOUT_ROUTES = ["/register","/login","/classroom"];
@@ -38,6 +40,7 @@ function AppWrapper() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog-page" element={<SingleBlog/>} />
         <Route path="/pricing" element={<Plans />} />
+        <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/register" element={<Signin />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/login" element={<Login/>} />   

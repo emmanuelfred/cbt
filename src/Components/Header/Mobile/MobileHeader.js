@@ -39,7 +39,7 @@ const MobileHeader = () => {
           
            <li> <Link to="/pricing">Pricing</Link></li>
           <li> <Link to="/blog">Latest News</Link></li>
-          <li><a href="#">Contact</a></li>
+          <li><Link to="/contact-us">Contact</Link></li>
         </ul>
           <div className="btn-container " style={{padding:20}}>
                     <Link to='/login' className="fancy-button">Login</Link>

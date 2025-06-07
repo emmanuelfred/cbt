@@ -49,7 +49,7 @@
     transition: all 0.3s ease;
     opacity: 0;
     visibility: hidden;
-    z-index: 100;
+    z-index: 1000;
     border-radius: 10px;
     
   }
@@ -83,7 +83,7 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.038);
-    z-index: 90;
+    z-index: 999;
     animation: fadeIn 0.3s ease-in-out;
   }
   

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Rightbar from '../Components/Rightbar/Rightbar'
+import { useLocation } from 'react-router-dom';
 import '../Style/Classroom.css'
 import { Link } from 'react-router-dom'
 import { MdOutlineViewSidebar } from 'react-icons/md'
@@ -8,12 +9,34 @@ import { MdClose } from 'react-icons/md';
 import CBTComponent from '../Components/CBTComponent/CBTComponent'
 import { FaUser, FaBook, FaCommentDots, FaChartBar, FaEdit } from 'react-icons/fa';
 import TakeCBT from '../Components/TakeCBT/TakeCBT';
+import TakeCBTprompt from '../Components/TakeCBTprompt/TakeCBTprompt';
+import PickCourse from '../Components/PickCourse/PickCourse';
 function Classroom() {
   const [isOpenright, setIsOpenright] = React.useState(false);
-    const [isOpenleft, setIsOpenleft] = React.useState(false);
-      const [activeTab, setActiveTab] = useState('');
-      const [component,setComponent] = useState(<CBTComponent/>)
+  const [isOpenleft, setIsOpenleft] = React.useState(false);
+  const [activeTab, setActiveTab] = useState('');
+  const [component,setComponent] = useState()
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const page = queryParams.get('page')|| null;
 
+  useEffect(() => {
+    switch (page) {
+      case 'dashboard':
+        setComponent(<TakeCBTprompt />);
+        handleClick('dashboard')
+        break;
+      case 'settings':
+        setComponent(<TakeCBTprompt /> );
+        handleClick('dashboard')
+        break;
+      default:
+        setComponent(<CBTComponent />);
+        handleClick('dashboard')
+        break;
+    }
+    
+  }, [page]);
 
   const handleClick = (tabName) => {
     setActiveTab(tabName);
@@ -91,7 +114,7 @@ function Classroom() {
               
             </li>
 
-            <li onClick={() => handleClick('registerCourse')} className={activeTab === 'registerCourse' ? 'active' : ''}>
+            <li onClick={() => {handleClick('registerCourse'); handleDisplay(<PickCourse/>)}}className={activeTab === 'registerCourse' ? 'active' : ''}>
               <Link to="#">
                 <FaBook /> Register Course
               </Link>
