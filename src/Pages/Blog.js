@@ -20,7 +20,7 @@ function Blog() {
             title: "Creating Engaging Content for Online Education Platforms",
             date: "October 22, 2024",
             excerpt: "Online education and e-learning have revolutionized the way people learn",
-            link: "https://theme.vividusmockup.com/learnease/2024/10/22/creating-engaging-content-for-online-education-platforms/",
+            link: "/blog-page",
             image: "https://theme.vividusmockup.com/learnease/wp-content/uploads/sites/3/2024/10/game-developers-discussing-team-workflow-in-order-2023-11-27-05-23-54-GNRGUHD.jpg",
             classes: "post-4568 category-learning-blog tag-digital"
           },
@@ -29,7 +29,7 @@ function Blog() {
             title: "Creating Engaging Content for Online Education Platforms",
             date: "October 22, 2024",
             excerpt: "Online education and e-learning have revolutionized the way people learn",
-            link: "https://theme.vividusmockup.com/learnease/2024/10/22/creating-engaging-content-for-online-education-platforms/",
+            link: "/blog-page",
             image: "https://theme.vividusmockup.com/learnease/wp-content/uploads/sites/3/2024/10/game-developers-discussing-team-workflow-in-order-2023-11-27-05-23-54-GNRGUHD.jpg",
             classes: "post-4568 category-learning-blog tag-digital"
           },
@@ -38,7 +38,7 @@ function Blog() {
             title: "Creating Engaging Content for Online Education Platforms",
             date: "October 22, 2024",
             excerpt: "Online education and e-learning have revolutionized the way people learn",
-            link: "https://theme.vividusmockup.com/learnease/2024/10/22/creating-engaging-content-for-online-education-platforms/",
+            link: "/blog-page",
             image: "https://theme.vividusmockup.com/learnease/wp-content/uploads/sites/3/2024/10/game-developers-discussing-team-workflow-in-order-2023-11-27-05-23-54-GNRGUHD.jpg",
             classes: "post-4568 category-learning-blog tag-digital"
           },
@@ -47,7 +47,7 @@ function Blog() {
             title: "Creating Engaging Content for Online Education Platforms",
             date: "October 22, 2024",
             excerpt: "Online education and e-learning have revolutionized the way people learn",
-            link: "https://theme.vividusmockup.com/learnease/2024/10/22/creating-engaging-content-for-online-education-platforms/",
+            link: "/blog-page",
             image: "https://theme.vividusmockup.com/learnease/wp-content/uploads/sites/3/2024/10/game-developers-discussing-team-workflow-in-order-2023-11-27-05-23-54-GNRGUHD.jpg",
             classes: "post-4568 category-learning-blog tag-digital"
           },
@@ -56,7 +56,7 @@ function Blog() {
             title: "Creating Engaging Content for Online Education Platforms",
             date: "October 22, 2024",
             excerpt: "Online education and e-learning have revolutionized the way people learn",
-            link: "https://theme.vividusmockup.com/learnease/2024/10/22/creating-engaging-content-for-online-education-platforms/",
+            link: "/blog-page",
             image: "https://theme.vividusmockup.com/learnease/wp-content/uploads/sites/3/2024/10/game-developers-discussing-team-workflow-in-order-2023-11-27-05-23-54-GNRGUHD.jpg",
             classes: "post-4568 category-learning-blog tag-digital"
           },
@@ -65,7 +65,7 @@ function Blog() {
             title: "Creating Engaging Content for Online Education Platforms",
             date: "October 22, 2024",
             excerpt: "Online education and e-learning have revolutionized the way people learn",
-            link: "https://theme.vividusmockup.com/learnease/2024/10/22/creating-engaging-content-for-online-education-platforms/",
+            link: "/blog-page",
             image: "https://theme.vividusmockup.com/learnease/wp-content/uploads/sites/3/2024/10/game-developers-discussing-team-workflow-in-order-2023-11-27-05-23-54-GNRGUHD.jpg",
             classes: "post-4568 category-learning-blog tag-digital"
           },
