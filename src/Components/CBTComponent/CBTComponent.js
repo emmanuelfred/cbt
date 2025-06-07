@@ -119,7 +119,7 @@ const CBTComponent = () => {
                     style={{
                       marginTop: '20px',
                       padding: '10px 20px',
-                      backgroundColor: '#20537c',
+                      background: 'linear-gradient(90deg, #20537c, #15253a)',
                       color: '#fff',
                       border: 'none',
                       borderRadius: '5px',
@@ -134,7 +134,7 @@ const CBTComponent = () => {
                     style={{
                       marginTop: '20px',
                       padding: '10px 20px',
-                      backgroundColor: '#20537c',
+                      background: 'linear-gradient(90deg, #20537c, #15253a)',
                       color: '#fff',
                       border: 'none',
                       borderRadius: '5px',

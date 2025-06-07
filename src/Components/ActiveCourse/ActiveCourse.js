@@ -1,10 +1,5 @@
-import React,{useState} from 'react'
-import Course from '../Courses/Courses';
-import './PickCourse.css'
-
+import React from 'react'
 import { FaPlay, FaBook, FaClock, FaStarHalfAlt } from 'react-icons/fa';
-
-
 
 
 const courses = [
@@ -18,6 +13,7 @@ const courses = [
       lessons: 13,
       duration: '3h 15m',
       rating: 4.2,
+      progress:30,
     },
     {
       image: 'https://kinforce.net/learen/wp-content/uploads/2022/08/coding-web-game-at-home-V3L73RC.jpg',
@@ -29,6 +25,7 @@ const courses = [
       lessons: 13,
       duration: '3h 15m',
       rating: 4.2,
+      progress:100,
     },
     {
       image: 'https://kinforce.net/learen/wp-content/uploads/2022/08/coding-web-game-at-home-V3L73RC.jpg',
@@ -40,6 +37,7 @@ const courses = [
       lessons: 13,
       duration: '3h 15m',
       rating: 4.2,
+      progress:80,
     },
     {
       image: 'https://kinforce.net/learen/wp-content/uploads/2022/08/coding-web-game-at-home-V3L73RC.jpg',
@@ -51,6 +49,7 @@ const courses = [
       lessons: 13,
       duration: '3h 15m',
       rating: 4.2,
+      progress:90,
     },
     {
       image: 'https://kinforce.net/learen/wp-content/uploads/2022/08/coding-web-game-at-home-V3L73RC.jpg',
@@ -62,6 +61,7 @@ const courses = [
       lessons: 13,
       duration: '3h 15m',
       rating: 4.2,
+      progress:40,
     },
     {
       image: 'https://kinforce.net/learen/wp-content/uploads/2022/08/coding-web-game-at-home-V3L73RC.jpg',
@@ -73,79 +73,75 @@ const courses = [
       lessons: 13,
       duration: '3h 15m',
       rating: 4.2,
+      progress:30,
     },
     // Add more course objects as needed
   ];
-
-function PickCourse() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    if (currentIndex < courses.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
-  const prevSlide = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
-    
+function ActiveCourse() {
   return (
-  <>
-   <div className='slider-container'>
-      <h3>Recommended Courses</h3>
-      <div className="slider-wrapper">
-        <button className="nav-button left" onClick={prevSlide} disabled={currentIndex === 0}>
-          &#10094;
-        </button>
+    <div>
+         <h3>Active Courses</h3>
 
-        <div className="slider-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-          {courses.map((course, index) => (
-            <div key={index} className="slider-slide">
-              <div className="recommanded-course">
-                <div className="course-image">
-                  <img src={course.image} alt="Course Cover" />
-                  <span className="course-category">{course.category}</span>
-                  <span className="course-price"><FaPlay /></span>
+    <div className='recommanded-container' style={{width:'100%',maxWidth:1000,display:'flex',justifyContent:'center',flexWrap:'wrap',gap:10}}>
+       
+     
+            {courses.map((course, index) => (
+         
+                <div
+                 key={index}
+                className='recommanded-course'
+                style={{
+                    maxWidth: 400,
+                    height: 157,
+                    display: 'flex',
+                    flexDirection: 'row',
+                    width: '100%',
+                    borderRadius: 10,
+                    overflow: 'hidden',
+                }}
+                >
+                <div className="course-image" style={{ height: '100%', width: '40%', position: 'relative' }}>
+                    <img
+                    src={course.image}
+                    alt="Course Cover"
+                    style={{ height: '100%', objectFit: 'cover', width: '100%' }}
+                    />
+                    <span className="course-category" style={{ position: 'absolute', top: 10, left: 10 }}>{course.category}</span>
+                    <span className="course-price" style={{ position: 'absolute', right: 10, bottom: 10, width: 35, height: 35 }}>
+                    <FaPlay />
+                    </span>
                 </div>
 
-                <div className="course-content">
-                  <div className="instructor-info">
-                    <img src={course.instructorImg} alt="Instructor" className="instructor-img" />
+                <div className="course-content" style={{ height: '100%', display: 'flex', flexDirection: 'column', padding: '5px' }}>
+                    <div className="instructor-info" style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                    <img
+                        src={course.instructorImg}
+                        alt="Instructor"
+                        className="instructor-img"
+                        style={{ width: 30, height: 30, borderRadius: '50%' }}
+                    />
                     <span className="instructor-name">{course.instructorName}</span>
-                  </div>
-                  <h3 className="course-title">{course.title}</h3>
-                  <ul className="course-details">
+                    </div>
+
+                    <h3 className="course-title" style={{ margin: '5px 0' }}>{course.title}</h3>
+
+                    <ul className="course-details" style={{ padding: 0, listStyle: 'none', fontSize: 12 }}>
                     <li><FaBook className="icon" /> {course.lessons} Lessons</li>
                     <li><FaClock className="icon" /> {course.duration}</li>
                     <li><FaStarHalfAlt className="icon" /> {course.rating}</li>
-                  </ul>
+                    </ul>
+                    <div className="progress-container">
+                        <div className="progress-bar" style={{ width: `${course.progress}%` }}></div>
+                        <span className="progress-text">{course.progress}% Complete</span>
+                    </div>
                 </div>
-              </div>
-            </div>
-          ))}
+                </div>
+           
+            ))}
+       
         </div>
-
-        <button className="nav-button right" onClick={nextSlide} disabled={currentIndex >= courses.length - 1}>
-          &#10095;
-        </button>
-      </div>
     </div>
-        <hr/>
-        <div className='PickCourse'>
-                {courses.map((course, index) => (
-                <div key={index} className='slide-course' >
-                    <Course {...course} />
-                </div>
-                ))}
-            </div>
-  
-  
-  </>
-   
   )
 }
 
-export default PickCourse
+export default ActiveCourse

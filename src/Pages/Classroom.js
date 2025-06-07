@@ -11,6 +11,7 @@ import { FaUser, FaBook, FaCommentDots, FaChartBar, FaEdit } from 'react-icons/f
 import TakeCBT from '../Components/TakeCBT/TakeCBT';
 import TakeCBTprompt from '../Components/TakeCBTprompt/TakeCBTprompt';
 import PickCourse from '../Components/PickCourse/PickCourse';
+import ActiveCourse from '../Components/ActiveCourse/ActiveCourse';
 function Classroom() {
   const [isOpenright, setIsOpenright] = React.useState(false);
   const [isOpenleft, setIsOpenleft] = React.useState(false);
@@ -24,15 +25,19 @@ function Classroom() {
     switch (page) {
       case 'dashboard':
         setComponent(<TakeCBTprompt />);
-        handleClick('dashboard')
+      
         break;
-      case 'settings':
-        setComponent(<TakeCBTprompt /> );
-        handleClick('dashboard')
+        case 'ActiveCourse':
+          setComponent(<ActiveCourse /> );
+       
+          break;
+      case 'registerCourse':
+        setComponent(<PickCourse/> );
+     
         break;
       default:
         setComponent(<CBTComponent />);
-        handleClick('dashboard')
+       
         break;
     }
     
@@ -98,14 +103,14 @@ function Classroom() {
 
          <ul className='Leftbar list-unstyled'>
             <li onClick={() => handleClick('trackProgress')} className={activeTab === 'trackProgress' ? 'active' : ''}>
-              <Link to="#">
+              <Link to="/classroom?page=dashboard">
                 <FaChartBar /> Track Progress
               </Link>
             </li>
 
             <li onClick={() =>{ handleClick('takeCBT'); handleDisplay(<TakeCBT/>)}} className={activeTab === 'takeCBT' ? 'active' : ''}>
               <Link
-                to="#"
+                to="/classroom?page=dashboard"
                 
               >
                 <span><FaEdit /> Take CBT</span>
@@ -114,13 +119,13 @@ function Classroom() {
               
             </li>
 
-            <li onClick={() => {handleClick('registerCourse'); handleDisplay(<PickCourse/>)}}className={activeTab === 'registerCourse' ? 'active' : ''}>
-              <Link to="#">
+            <li onClick={() => {handleClick('registerCourse')}}className={activeTab === 'registerCourse' ? 'active' : ''}>
+              <Link to="/classroom?page=registerCourse">
                 <FaBook /> Register Course
               </Link>
             </li>
             <li onClick={() => handleClick('activeCourse')} className={activeTab === 'activeCourse' ? 'active' : ''}>
-              <Link to="#">
+              <Link to="/classroom?page=ActiveCourse">
                 <FaBook /> Active Course
               </Link>
             </li>
@@ -142,7 +147,7 @@ function Classroom() {
           }
           
         </div>
-        <div className={'rightbar-content' + (isOpenright ? 'openbar' : '')}>
+        <div className={'rightbar-content ' + (isOpenright ? 'openbar' : '')}>
             <Rightbar/>
         </div>
     </div>

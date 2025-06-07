@@ -88,6 +88,7 @@ function Blog() {
                 ))}
             </div>
         </div>
+        <Contact/>
        
         <Newsletter/>
 

@@ -51,7 +51,7 @@
     align-items: center;
     padding: 20px;
     position: sticky;
-    top: 84px;
+    top: 64px;
     width: 100%;
     background-color: var(--bg);
     z-index: 90;
@@ -62,7 +62,7 @@
     }
     .classroom-header{
         display: flex;
-        margin-top: 84px;
+        margin-top: 64px;
     }
     .classroom-header div{
         cursor: pointer;
@@ -76,12 +76,21 @@
     .leftbar-content{
         display: none;
         position: fixed;
-        top: 20%;
+        top: 18%;
         left: 0;
-         height: calc(100vh - 155px);
+         height: calc(100vh - 125px);
+    }
+    .rightbar-content{
+        display: none;
+        position: fixed;
+        top: 18%;
+        right: 0;
+         height: calc(100vh - 100px);
+
     }
     .main-content{
         padding-top: 0;
+        width: 100%;
     }
 
     
@@ -91,14 +100,7 @@
     transition: all 0.5s ease;
     z-index: 100;
 }
-@media  (max-width: 568px) {
-  .rightbar-content{
-        display: none;
-    }
-    
-  
-    
-}
+
 .Leftbar li {
   margin: 10px 0;
   position: relative;
@@ -114,3 +116,29 @@
   align-items: center;
   gap: 8px;
 }
+/*prograss bar in active course*/
+.progress-container {
+    width: 100%;
+    height: 16px;
+    background: #e0e0e0;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #20537c, #15253a); /* gradient from light blue to dark blue */
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .progress-text {
+    font-size: 12px;
+    color: #333;
+    margin-top: 5px;
+    display: block;
+    text-align: right;
+  }
+  

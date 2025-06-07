@@ -1,5 +1,6 @@
 import React from 'react'
 import './ContactForm.css'
+import { FiPhone, FiMail, FiMapPin } from 'react-icons/fi'
 
 function ContactForm() {
     return (

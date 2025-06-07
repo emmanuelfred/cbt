@@ -6,15 +6,15 @@ import MobileHeader from './Mobile/MobileHeader';
 
 function Header() {
   const [showMainNav, setShowMainNav] = useState(false);
+  const [active, setActive] = useState('Home');
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowMainNav(window.scrollY > 50); // Change threshold as needed
+      setShowMainNav(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup on unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -22,7 +22,7 @@ function Header() {
 
   return (
     <header>
-      {showMainNav ? <Main_Nav /> : <ScrolNav />}
+      {showMainNav ? <Main_Nav /> : <ScrolNav active={active} setActive={setActive} />}
       <MobileHeader />
     </header>
   );

@@ -31,7 +31,7 @@ const MobileHeader = () => {
         </button>
       </div>
 
-      <div className={`side-menu ${menuOpen ? 'open' : ''}`}>
+      <div className={`side-menu ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
         <ul>
           <li><a href="/">Home</a></li>
           <li> <Link to="/about">About Us</Link> </li>

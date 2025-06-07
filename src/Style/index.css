@@ -114,7 +114,7 @@ code {
   left: -100%;
   width: 100%;
   height: 100%;
-  background-color: var( --primary-color-light); /* hover background color */
+  background: linear-gradient(90deg, #20537c, #15253a); /* hover background color */
   transition: left 0.4s ease;
   z-index: -1;
 }
@@ -132,7 +132,7 @@ code {
   padding: 12px 24px;
   font-size: 16px;
   color: white;
-  background-color: var( --primary-color-light); /* Initial background */
+  background: linear-gradient(90deg, #20537c, #15253a); /* Initial background */
   border: 2px solid var( --primary-color-light);
   border-radius: 8px;
   cursor: pointer;
@@ -147,7 +147,7 @@ code {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var( --primary-color-light);
+  background: linear-gradient(90deg, #20537c, #15253a);
   transition: left 0.4s ease;
   z-index: -1;
 }
@@ -158,7 +158,7 @@ code {
 
 .reveal-button:hover {
   color: var( --primary-color-light);
-  background-color: transparent;
+  background: transparent;
   border-color: var( --primary-color-light);
 }
 @media 
