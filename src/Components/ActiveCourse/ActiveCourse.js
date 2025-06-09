@@ -79,8 +79,8 @@ const courses = [
   ];
 function ActiveCourse() {
   return (
-    <div>
-         <h3>Active Courses</h3>
+    <div style={{padding:10}}>
+         <h3 style={{padding:10}}>Active Courses</h3>
 
     <div className='recommanded-container' style={{width:'100%',maxWidth:1000,display:'flex',justifyContent:'center',flexWrap:'wrap',gap:10}}>
        

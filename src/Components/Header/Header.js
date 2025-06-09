@@ -7,6 +7,17 @@ import MobileHeader from './Mobile/MobileHeader';
 function Header() {
   const [showMainNav, setShowMainNav] = useState(false);
   const [active, setActive] = useState('Home');
+  const [loading, setLoading] = React.useState(true);
+
+  useEffect(() => {
+  
+  
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000); // Simulate loading delay
+  
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,8 +33,8 @@ function Header() {
 
   return (
     <header>
-      {showMainNav ? <Main_Nav /> : <ScrolNav active={active} setActive={setActive} />}
-      <MobileHeader />
+      {showMainNav ? <Main_Nav  loading={loading} /> : <ScrolNav active={active} setActive={setActive} loading={loading} />}
+      <MobileHeader loading={loading} />
     </header>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FiCompass } from "react-icons/fi"; 
 import './Explore.css'
+import { Link } from "react-router-dom";
 
 function Explore() {
     const [isOpen, setIsOpen] = useState(false);
@@ -35,9 +36,13 @@ function Explore() {
       Explore</span>
 
       <div className={`dropdown-menu ${isOpen ? "show" : ""}`}>
-        <a href="#">Item 1</a>
-        <a href="#">Item 2</a>
-        <a href="#">Item 3</a>
+      <Link to="/">Home</Link>
+           <Link to="/about">About Us</Link> 
+            <Link to="/classroom">Classroom</Link>
+          
+            <Link to="/pricing">Pricing</Link>
+           <Link to="/blog">Latest News</Link>
+          <Link to="/contact-us">Contact</Link>
       </div>
     </div>
   )

@@ -4,11 +4,27 @@ import BlogPost from '../Components/BlogPost/BlogPost'
 import Banner from '../Components/Banner/Banner';
 import Contact from '../Components/Contact/Contact';
 import Newsletter from '../Components/Newsletter/Newsletter';
+import ImageWithLoading from '../Components/ImageWithLoading';
+import AOS from 'aos';
+import ServiceSection from '../Components/ServiceSection/ServiceSection';
 
 
 
 function Blog() {
     const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+  // Simulate loading for 2 seconds
+  const timer = setTimeout(() => setLoading(false), 1000);
+  return () => clearTimeout(timer);
+}, []);
+useEffect(() => {
+  AOS.init({
+    duration: 1000,
+    once: false, // ← allows the animation to happen more than once
+  });
+}, []);
 
     // Mock JSON from future database
     useEffect(() => {
@@ -79,18 +95,42 @@ function Blog() {
     }, []);
   return (
     <div>
-        <Banner title="Our Latest Blogs" description="Discover a wide range of expert-led courses tailored to your personal and professional growth."/>
-        <div className="blog-container container">
-            
-            <div className="elementor-grid">
-                {posts.map(post => (
-                <BlogPost key={post.id} post={post} />
-                ))}
+        <Banner title="Our Latest Blogs"
+         description="Discover a wide range of expert-led courses tailored to your personal and professional growth."/>
+         {loading ? 
+         (<div style={{padding:10}} data-aos="zoom-out"><ImageWithLoading height={600}/></div>)
+          : (
+            <>
+            <div className="blog-container container" data-aos="zoom-out">
+                
+                <div className="elementor-grid">
+                    {posts.map(post => (
+                    <BlogPost key={post.id} post={post} />
+                    ))}
+                </div>
             </div>
-        </div>
-        <Contact/>
+            <div data-aos="zoom-out">
+            <Contact/>
+            </div>
+            <div data-aos="zoom-out">
+            <ServiceSection/>
+            </div>
+
+            <div data-aos="zoom-out">
+            <Newsletter/>
+            </div>
+            
+           
+           
+            
+            </>
+
+
+          )}
+        
+        
        
-        <Newsletter/>
+        
 
   
      

@@ -12,8 +12,9 @@ import {
   FiHelpCircle
 } from "react-icons/fi";
 import "./ProfileDropdown.css";
+import Skeleton from "react-loading-skeleton";
 
-function ProfileDropdown() {
+function ProfileDropdown({loading}) {
   // Simulated user data (Replace with actual user state from backend)
   const [user, setUser] = useState({
     isLoggedIn: false, // Change to false to simulate a logged-out state
@@ -22,7 +23,17 @@ function ProfileDropdown() {
   });
 
   return (
-    <div className="dropdown user">
+    loading?(
+    
+        <div style={{display:'flex',gap:10}}>
+          <Skeleton height={50} width={150}/>
+          <Skeleton height={50} width={150}/>
+
+        </div>
+      
+    ):(
+
+      <div className="dropdown user">
       {/* Show User Icon when NOT Logged In, Else Show Profile Pic */}
          {/* Dropdown Menu */}
      
@@ -100,6 +111,9 @@ function ProfileDropdown() {
         )}
       
     </div>
+
+    )
+    
   );
 }
 

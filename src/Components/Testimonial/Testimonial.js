@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import './Testimonial.css'; // You can style this using your preferred CSS method
 import StudentStack from '../StudentStack';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import {  Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import ImageWithLoading from '../ImageWithLoading';
 
 const testimonials = [
   {
@@ -34,62 +35,81 @@ const testimonials = [
   },
 ];
 export default function Testimonial() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 1000); // Simulate async fetch
+  }, []);
   return (
     <div className='testimonial-section mt-5 container'>
-        <div className='testimonial-header1'>
-            <div>
-            <h3>Testimonial</h3>
-                <h2 className='testimonial-title'>What Our Students Say</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna adipiscing elit.</p>
+      {
+        loading ?(
 
+          <ImageWithLoading height={400}/>
+        ):(
+          <>
+          <div className='testimonial-header1'>
+                <div>
+                <h3>Testimonial</h3>
+                    <h2 className='testimonial-title'>What Our Students Say</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna adipiscing elit.</p>
+    
+                </div>
+                <div className='students' style={{position:'static'}}>
+                  <div style={{width:'30%'}}><StudentStack/></div>
+                  <span>17K+ Student</span>
+                </div>
+                
+    
             </div>
-            <div className='students' style={{position:'static'}}>
-              <div style={{width:'30%'}}><StudentStack/></div>
-              <span>17K+ Student</span>
-            </div>
-            
-
+            <div className="testimonial-slider">
+          <Swiper
+            modules={[ Pagination, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1}
+            loop={true}
+          
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 5000 }}
+          >
+            {testimonials.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className="testimonial-card">
+                  <div className="testimonial-header">
+                    <div className="testimonial-image">
+                      <img src={item.image} alt={item.name} />
+                    </div>
+                    <cite className="testimonial-cite">
+                      <span className="testimonial-name">{item.name}</span>
+                      <span className="testimonial-title">{item.title}</span>
+                    </cite>
+                    <div className="testimonial-icon">
+                      <svg
+                        aria-hidden="true"
+                        className="quote-icon"
+                        viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M464 32H336c-26.5..."></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="testimonial-content">
+                    <p className="testimonial-text">"{item.text}"</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-        <div className="testimonial-slider">
-      <Swiper
-        modules={[ Pagination, Autoplay]}
-        spaceBetween={20}
-        slidesPerView={1}
-        loop={true}
+          
+          </>
+
+        )
+      }
       
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 5000 }}
-      >
-        {testimonials.map((item, index) => (
-          <SwiperSlide key={index}>
-            <div className="testimonial-card">
-              <div className="testimonial-header">
-                <div className="testimonial-image">
-                  <img src={item.image} alt={item.name} />
-                </div>
-                <cite className="testimonial-cite">
-                  <span className="testimonial-name">{item.name}</span>
-                  <span className="testimonial-title">{item.title}</span>
-                </cite>
-                <div className="testimonial-icon">
-                  <svg
-                    aria-hidden="true"
-                    className="quote-icon"
-                    viewBox="0 0 512 512"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M464 32H336c-26.5..."></path>
-                  </svg>
-                </div>
-              </div>
-              <div className="testimonial-content">
-                <p className="testimonial-text">"{item.text}"</p>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+     
+       
        
        
 

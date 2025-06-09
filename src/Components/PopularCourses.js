@@ -1,10 +1,13 @@
-import React from 'react';
-import Course from './Courses/Courses'; // Adjust the import path as necessary
+import React, { useEffect, useState } from 'react';
+import Course from './Courses/Courses';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
+import Skeleton from 'react-loading-skeleton';
+
 import 'swiper/css';
 import 'swiper/css/pagination';
-
+import 'react-loading-skeleton/dist/skeleton.css';
+import ImageWithLoading from './ImageWithLoading';
 
 const courses = [
   {
@@ -77,31 +80,81 @@ const courses = [
 ];
 
 function PopularCourses() {
-  return (
-    <div className="popular-courses-container mt-5 container">
-      <div className="text-center mb-4">
-        <h3>Our Popular Courses</h3>
-        <h1>Explore Our Popular Courses</h1>
-        <p>Discover a wide range of expert-led courses tailored to your personal and professional growth.</p>
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 1000); // Simulate async fetch
+  }, []);
+
+  const renderSkeletonCourse = () => (
+    <div className="course-card">
+      <div className="course-image">
+        <ImageWithLoading height={180} />
+        
+        <div style={{ position: 'absolute', top: 10, left: 10 }}>
+          <Skeleton width={80} height={20} />
+        </div>
+        <div style={{ position: 'absolute', top: 10, right: 10 }}>
+          <Skeleton width={40} height={20} />
+        </div>
       </div>
 
+      <div className="course-content">
+        <div className="instructor-info" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{overflow:'hidden',width:40,height:40,borderRadius:'50%'}}>
+
+          <ImageWithLoading height={40} width={40}/>
+        </div>
+         
+          <Skeleton width={100} height={15} />
+        </div>
+
+        <h3 className="course-title">
+          <Skeleton width={`80%`} height={20} />
+        </h3>
+
+        <ul className="course-details">
+          <li><Skeleton width={100} height={15} /></li>
+          <li><Skeleton width={80} height={15} /></li>
+          <li><Skeleton width={60} height={15} /></li>
+        </ul>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="popular-courses-container mt-5 container">
+      {loading ? (
+        <div className="text-center mb-4">
+          <Skeleton width={'40%'} height={40} />
+          <Skeleton width={'70%'} height={50} />
+          <Skeleton width={'80%'} height={20} />
+        </div>
+      ) : (
+        <div className="text-center mb-4">
+          <h3>Our Popular Courses</h3>
+          <h1>Explore Our Popular Courses</h1>
+          <p>Discover a wide range of expert-led courses tailored to your personal and professional growth.</p>
+        </div>
+      )}
+
       <Swiper
-            modules={[Autoplay, Pagination]}
-            spaceBetween={20}
-            slidesPerView={1}
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-              1280: { slidesPerView: 4 }, // Now shows 4 courses on very large screens
-            }}
-            autoplay={{ delay: 2000, disableOnInteraction: false }}
-            pagination={{ clickable: true }}
-            loop={true}
-          >
-        {courses.map((course, index) => (
-          <SwiperSlide key={index} className='slide-course' >
-            <Course {...course} />
+        modules={[Autoplay, Pagination]}
+        spaceBetween={20}
+        slidesPerView={1}
+        breakpoints={{
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 },
+        }}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+        loop={true}
+      >
+        {(loading ? Array(4).fill({}) : courses).map((course, index) => (
+          <SwiperSlide key={index} className="slide-course">
+            {loading ? renderSkeletonCourse() : <Course {...course} />}
           </SwiperSlide>
         ))}
       </Swiper>
@@ -110,3 +163,4 @@ function PopularCourses() {
 }
 
 export default PopularCourses;
+

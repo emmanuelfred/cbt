@@ -51,7 +51,9 @@
     align-items: center;
     padding: 20px;
     position: sticky;
-    top: 64px;
+    top: 0;
+
+    padding-top: 94px;
     width: 100%;
     background-color: var(--bg);
     z-index: 90;
@@ -62,7 +64,7 @@
     }
     .classroom-header{
         display: flex;
-        margin-top: 64px;
+       
     }
     .classroom-header div{
         cursor: pointer;

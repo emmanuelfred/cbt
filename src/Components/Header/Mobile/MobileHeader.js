@@ -2,8 +2,9 @@ import React, { useState,useEffect } from 'react';
 import './MobileHeader.css';
 import logo from '../../../Assets/mobile-logo.png'
 import { Link } from 'react-router-dom';
-
-const MobileHeader = () => {
+import Skeleton from 'react-loading-skeleton';
+import ImageWithLoading from '..//../ImageWithLoading';
+const MobileHeader = ({loading}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showMainNav, setShowMainNav] = useState(false);
   
@@ -25,10 +26,17 @@ const MobileHeader = () => {
   return (
     <div className={showMainNav ? "mobile-header shownav" : "mobile-header"}>
       <div className="header-bar">
-        <Link to={'/'} className="logo"> <img src={logo} alt=""  /></Link>
-        <button className="menu-toggle" onClick={toggleMenu}>
-          ☰
-        </button>
+        <Link to={'/'} className="logo"> {loading ? (
+              <ImageWithLoading height={50} width={50}/>
+              
+            ) : (
+              <img src={logo} alt="logo" className="logo" />
+            )}</Link>
+             {loading ? <Skeleton width={34} height={34} /> : 
+             <button className="menu-toggle" onClick={toggleMenu}>
+             ☰
+           </button>}
+        
       </div>
 
       <div className={`side-menu ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>

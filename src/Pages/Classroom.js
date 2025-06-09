@@ -9,7 +9,7 @@ import { MdClose } from 'react-icons/md';
 import CBTComponent from '../Components/CBTComponent/CBTComponent'
 import { FaUser, FaBook, FaCommentDots, FaChartBar, FaEdit } from 'react-icons/fa';
 import TakeCBT from '../Components/TakeCBT/TakeCBT';
-import TakeCBTprompt from '../Components/TakeCBTprompt/TakeCBTprompt';
+
 import PickCourse from '../Components/PickCourse/PickCourse';
 import ActiveCourse from '../Components/ActiveCourse/ActiveCourse';
 function Classroom() {
@@ -23,8 +23,8 @@ function Classroom() {
 
   useEffect(() => {
     switch (page) {
-      case 'dashboard':
-        setComponent(<TakeCBTprompt />);
+      case 'takeCBT':
+        setComponent(<TakeCBT/>);
       
         break;
         case 'ActiveCourse':
@@ -101,16 +101,16 @@ function Classroom() {
        
       <div className={`leftbar-content ${isOpenleft ? 'openbar' : ''}`}>
 
-         <ul className='Leftbar list-unstyled'>
+         <ul className='Leftbar list-unstyled' onClick={toggleleftbar}>
             <li onClick={() => handleClick('trackProgress')} className={activeTab === 'trackProgress' ? 'active' : ''}>
               <Link to="/classroom?page=dashboard">
                 <FaChartBar /> Track Progress
               </Link>
             </li>
 
-            <li onClick={() =>{ handleClick('takeCBT'); handleDisplay(<TakeCBT/>)}} className={activeTab === 'takeCBT' ? 'active' : ''}>
+            <li onClick={() =>{ handleClick('takeCBT');}} className={activeTab === 'takeCBT' ? 'active' : ''}>
               <Link
-                to="/classroom?page=dashboard"
+                to="/classroom?page=takeCBT"
                 
               >
                 <span><FaEdit /> Take CBT</span>
