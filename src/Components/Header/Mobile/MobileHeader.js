@@ -3,7 +3,7 @@ import './MobileHeader.css';
 import logo from '../../../Assets/mobile-logo.png'
 import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
-import ImageWithLoading from '..//../ImageWithLoading';
+import ImageWithLoading from '../../ImageWithLoading';
 const MobileHeader = ({loading}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showMainNav, setShowMainNav] = useState(false);
