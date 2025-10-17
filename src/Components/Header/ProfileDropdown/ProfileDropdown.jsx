@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import profilePicture from "../../../Assets/banner/Capturee.PNG"; // Replace with actual image path
+
 import {
   FiBox,
   FiClock,
@@ -13,14 +13,18 @@ import {
 } from "react-icons/fi";
 import "./ProfileDropdown.css";
 import Skeleton from "react-loading-skeleton";
+import { useAuthStore } from "../../../store/authStore";
+import { formatDate } from "../../../utils/date";
 
 function ProfileDropdown({loading}) {
   // Simulated user data (Replace with actual user state from backend)
-  const [user, setUser] = useState({
-    isLoggedIn: false, // Change to false to simulate a logged-out state
-    name: "Kate",
-    profilePic: profilePicture, // Replace with real image URL
-  });
+  	const { user, logout, isAuthenticated } = useAuthStore();
+    
+
+	const handleLogout = () => {
+		logout();
+	};
+
 
   return (
     loading?(
@@ -37,16 +41,16 @@ function ProfileDropdown({loading}) {
       {/* Show User Icon when NOT Logged In, Else Show Profile Pic */}
          {/* Dropdown Menu */}
      
-         {user.isLoggedIn ? (
+         { isAuthenticated ? (
           <>
-           <Link
+           <div
         className="d-flex align-items-center dropdown-toggle"
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
       
           <img
-            src={user.profilePic}
+            src={user.profilePic||'https://randomuser.me/api/portraits'}
             alt="User Profile"
             className="profile-pic"
             style={{
@@ -54,53 +58,56 @@ function ProfileDropdown({loading}) {
               height: "35px",
               borderRadius: "50%",
               objectFit: "cover",
+              maxWidth: "100%",
+              objectPosition: "center",
             }}
           />
      
         <span className="username">
-          {user.isLoggedIn ? `Hi, ${user.name}` : ""}
+          {`Hi, ${user.name.split(" ")[0]}`}
         </span>
-      </Link>
+      </div>
 
    
            <div
            className="dropdown-menu dropdown-menu-end p-2 shadow"
-           style={{ width: "300px" }}
+          
          >
-          <div className="row">
-            <div className="col-6 d-flex align-items-center mb-2">
-              <FiBox className="me-2" />
+          <div className="profile-nav-contain">
+            <div className="profile-nav">
+              <FiBox className="me-2"size={35} color="#f4825d" />
               <span>Past Orders</span>
             </div>
-            <div className="col-6 d-flex align-items-center mb-2">
-              <FiClock className="me-2" />
+            <div className="profile-nav">
+              <FiClock className="me-2"size={35} color="#f4825d" />
               <span>Upcoming Orders</span>
             </div>
-            <div className="col-6 d-flex align-items-center mb-2">
-              <FiHeart className="me-2" />
+            <div className="profile-nav">
+              <FiHeart className="me-2" size={35} color="#f4825d"/>
               <span>Saved</span>
             </div>
-            <div className="col-6 d-flex align-items-center mb-2">
-              <FiGift className="me-2" />
+            <div className="profile-nav">
+              <FiGift className="me-2"size={35} color="#f4825d" />
               <span>Gift Cards</span>
             </div>
-            <div className="col-6 d-flex align-items-center mb-2">
-              <FiUserPlus className="me-2" />
+            <div className="profile-nav">
+              <FiUserPlus className="me-2"size={35} color="#f4825d" />
               <span>Refer a Friend</span>
             </div>
-            <div className="col-6 d-flex align-items-center mb-2">
-              <FiLogOut className="me-2" />
+            <div className="profile-nav" onClick={handleLogout}>
+              <FiLogOut className="me-2" size={35} color="#f4825d"/>
               <span>Logout</span>
             </div>
-            <div className="col-6 d-flex align-items-center mb-2">
-              <FiUser className="me-2" />
+            <div className="profile-nav" >
+              <FiUser className="me-2" size={35} color="#f4825d" />
               <span>Account</span>
             </div>
-            <div className="col-6 d-flex align-items-center mb-2">
-              <FiHelpCircle className="me-2" />
+            <div className="profile-nav" >
+              <FiHelpCircle className="me-2" size={35} color="#f4825d"/>
               <span>Help</span>
             </div>
           </div>
+          <span>{formatDate(user.lastLogin)}</span>
           </div></>
      
         ) : (

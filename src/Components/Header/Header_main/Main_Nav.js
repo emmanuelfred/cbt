@@ -5,7 +5,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import Explore from '../Expore/Explore';
 import ProfileDropdown from '../ProfileDropdown/ProfileDropdown';
 import Skeleton from 'react-loading-skeleton';
-import ImageWithLoading from '..//../ImageWithLoading';
+import ImageWithLoading from '../../ImageWithLoading';
 import { Link } from 'react-router-dom';
 
 function Main_Nav({loading}) {

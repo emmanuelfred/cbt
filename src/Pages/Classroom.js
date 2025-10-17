@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import Rightbar from '../Components/Rightbar/Rightbar'
-import { useLocation } from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
+
 import '../Style/Classroom.css'
 import { Link } from 'react-router-dom'
 import { MdOutlineViewSidebar } from 'react-icons/md'
 import { MdBuild } from 'react-icons/md'; 
 import { MdClose } from 'react-icons/md';
 import CBTComponent from '../Components/CBTComponent/CBTComponent'
-import { FaUser, FaBook, FaCommentDots, FaChartBar, FaEdit } from 'react-icons/fa';
+import { FaUser, FaBook, FaCommentDots, FaChartBar, FaEdit,FaCreditCard } from 'react-icons/fa';
 import TakeCBT from '../Components/TakeCBT/TakeCBT';
 
 import PickCourse from '../Components/PickCourse/PickCourse';
 import ActiveCourse from '../Components/ActiveCourse/ActiveCourse';
+import Subcription from '../Components/Subcription/Subcription';
+import Profile from '../Components/Profile/Profile';
+import EditProfile from '../Components/EditProfile/EditProfile';
+import ChangeCredentials from '../Components/ChangeCredentials';
+import Dashboard from '../Components/Dashboard/Dashboard';
 function Classroom() {
   const [isOpenright, setIsOpenright] = React.useState(false);
   const [isOpenleft, setIsOpenleft] = React.useState(false);
@@ -20,9 +26,13 @@ function Classroom() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const page = queryParams.get('page')|| null;
+ 
+   
+ 
 
   useEffect(() => {
     switch (page) {
+     
       case 'takeCBT':
         setComponent(<TakeCBT/>);
       
@@ -35,8 +45,30 @@ function Classroom() {
         setComponent(<PickCourse/> );
      
         break;
+      case 'cbt':
+          const userData = location.state ||{username:null, avatar:null, exam:null, year:null, subjects:null, duration:null} ;
+
+         setComponent(<CBTComponent userData= {userData}/>);
+          break;
+       case 'payment':
+            setComponent(<Subcription/> );
+            break;
+       case "profile":
+            setComponent(<Profile/> );
+            break;
+      case "edit-profile":
+            setComponent(<EditProfile/> );
+            break;
+        case "security":
+            setComponent(<ChangeCredentials/> );
+            break;
+      case 'dashboard':
+            setComponent(<Dashboard/>);
+            break;
+
       default:
-        setComponent(<CBTComponent />);
+         setComponent(<Dashboard/>);
+       
        
         break;
     }
@@ -102,18 +134,19 @@ function Classroom() {
       <div className={`leftbar-content ${isOpenleft ? 'openbar' : ''}`}>
 
          <ul className='Leftbar list-unstyled' onClick={toggleleftbar}>
+
             <li onClick={() => handleClick('trackProgress')} className={activeTab === 'trackProgress' ? 'active' : ''}>
               <Link to="/classroom?page=dashboard">
                 <FaChartBar /> Track Progress
               </Link>
             </li>
 
-            <li onClick={() =>{ handleClick('takeCBT');}} className={activeTab === 'takeCBT' ? 'active' : ''}>
+            <li  onClick={() =>{ handleClick('takeCBT');}} className={activeTab === 'takeCBT' ? 'active' : ''}>
               <Link
                 to="/classroom?page=takeCBT"
                 
               >
-                <span><FaEdit /> Take CBT</span>
+                <FaEdit /> Take CBT
                 
               </Link>
               
@@ -135,8 +168,13 @@ function Classroom() {
               </Link>
             </li>
             <li onClick={() => handleClick('profile')} className={activeTab === 'profile' ? 'active' : ''}>
-              <Link to="#">
+              <Link to="/classroom?page=profile">
                 <FaUser /> Profile
+              </Link>
+            </li>
+             <li onClick={() => handleClick('payment')} className={activeTab === 'payment' ? 'active' : ''}>
+              <Link to="/classroom?page=payment">
+                <FaCreditCard/> Payment & Subscription
               </Link>
             </li>
           </ul>

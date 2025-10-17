@@ -4,7 +4,10 @@ import logo from '../../../Assets/mobile-logo.png'
 import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import ImageWithLoading from '../../ImageWithLoading';
+import { useAuthStore } from "../../../store/authStore";
+import ProfileDropdown from '../ProfileDropdown/ProfileDropdown';
 const MobileHeader = ({loading}) => {
+      const { isAuthenticated } = useAuthStore();
   const [menuOpen, setMenuOpen] = useState(false);
   const [showMainNav, setShowMainNav] = useState(false);
   
@@ -25,7 +28,7 @@ const MobileHeader = ({loading}) => {
 
   return (
     <div className={showMainNav ? "mobile-header shownav" : "mobile-header"}>
-      <div className="header-bar">
+      <div className="header-bar" style={{backgroundColor:'#fff',maxWidth:'100vw',boxShadow:'0 2px 8px rgba(0, 0, 0, 0.05);'}}>
         <Link to={'/'} className="logo"> {loading ? (
               <ImageWithLoading height={50} width={50}/>
               
@@ -39,8 +42,15 @@ const MobileHeader = ({loading}) => {
         
       </div>
 
-      <div className={`side-menu ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-        <ul>
+      <div className={`side-menu ${menuOpen ? 'open' : ''}`} >
+        {
+          isAuthenticated ? (
+            <ProfileDropdown/>
+          ):(
+            <></>
+          )
+        }
+        <ul onClick={toggleMenu}>
           <li><a href="/">Home</a></li>
           <li> <Link to="/about">About Us</Link> </li>
           <li>  <Link to="/classroom">Classroom</Link></li>
@@ -49,10 +59,17 @@ const MobileHeader = ({loading}) => {
           <li> <Link to="/blog">Latest News</Link></li>
           <li><Link to="/contact-us">Contact</Link></li>
         </ul>
-          <div className="btn-container " style={{padding:20}}>
-                    <Link to='/login' className="fancy-button">Login</Link>
-                    <Link to="/register" className="reveal-button">Sign up</Link>
-                  </div>
+         {
+          isAuthenticated ? (
+            <></>
+          ):(
+            <div className="btn-container " style={{padding:20}}>
+              <Link to='/login' className="fancy-button">Login</Link>
+              <Link to="/register" className="reveal-button">Sign up</Link>
+            </div>
+         )
+        }
+         
       </div>
 
       {menuOpen && <div className="overlay" onClick={toggleMenu}></div>}

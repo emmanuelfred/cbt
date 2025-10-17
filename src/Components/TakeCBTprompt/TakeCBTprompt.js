@@ -9,43 +9,44 @@ import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
 import ImageWithLoading from '../ImageWithLoading';
 import Skeleton from 'react-loading-skeleton';
+import { useCbtstore } from '../../store/cbtStore';
 
 
-// Dummy data - Replace this with real leaderboard data from backend
-const leaderboardData = [
-  {
-    name: "Chisom Okafor",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-    score: 94,
-    date: "2025-06-01",
-  },
-  {
-    name: "Ada Nwosu",
-    avatar: "https://randomuser.me/api/portraits/women/45.jpg",
-    score: 92,
-    date: "2025-06-02",
-  },
-  {
-    name: "Ibrahim Musa",
-    avatar: "https://randomuser.me/api/portraits/men/74.jpg",
-    score: 90,
-    date: "2025-06-01",
-  },
-  {
-    name: "Blessing Eze",
-    avatar: "https://randomuser.me/api/portraits/women/24.jpg",
-    score: 89,
-    date: "2025-06-03",
-  },
-  // ... add up to top 10
-];
 
 function TakeCBTprompt() {
   const [loading, setLoading] = useState(true);
+  const [attempts ,setAttempts] = useState([])
+  const { getAllAttempts } = useCbtstore();
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000); // fake delay
   }, []);
+useEffect(() => {
+  const fetchLeaderboard = async () => {
+    try {
+      const res = await getAllAttempts();
+      
+      // Filter those who allowed sharing
+      const shared = res.attempts.filter(a => a.sharePermission);
+
+      // Sort by percentage descending
+      const sorted = shared.sort((a, b) => b.percentage - a.percentage);
+
+      // Pick top 10
+      const top10 = sorted.slice(0, 10);
+
+      setAttempts(top10);
+    } catch (err) {
+      console.error("Error loading leaderboard:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchLeaderboard();
+}, []);
+
+
  
   return (
     <div className='TakeCBTprompt container py-5'  >
@@ -119,22 +120,26 @@ function TakeCBTprompt() {
                 </div>
               </SwiperSlide>
             ))
-          : leaderboardData.map((student, index) => (
-              <SwiperSlide key={index}>
-                <div className="leaderboard-card p-3 rounded text-center">
-                  <img
-                    src={student.avatar}
-                    alt={student.name}
-                    className="leaderboard-avatar"
-                  />
-                  <h5>{student.name}</h5>
-                  <p className="text-muted">🗓️ {new Date(student.date).toDateString()}</p>
-                  <div className="score-box">
-                    Score: <strong>{student.score}%</strong>
-                  </div>
+          : attempts.map((student, index) => (
+          <SwiperSlide key={student._id}>
+            <div className="leaderboard-card p-3 rounded text-center">
+              <img
+                src={student.avatar}
+                alt={student.name}
+                className="leaderboard-avatar"
+                style={{width:80,height:80,minWidth:80,minHeight:80}}
+              />
+              <div className='leaderboard-info'>
+                <h5>{student.name}</h5>
+                <span className="text-muted">🗓️ {new Date(student.date).toDateString()}</span>
+                <div className="score-box">
+                  Score: <strong>{student.percentage}%</strong>
                 </div>
-              </SwiperSlide>
-            ))}
+              </div>
+            </div>
+          </SwiperSlide>
+        ))
+        }
       </Swiper>
 
     </div>

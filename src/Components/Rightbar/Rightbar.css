@@ -1,47 +1,94 @@
-.Rightbar{
-    height: 100%;
+.RightbarContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+  z-index: 2000;
 }
-.Rightbar ul{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    flex-direction: column;
-    gap: 30px;
-    height: 100vh;
-    width: 70px;
-    background-color: var(--bg);
-    list-style: none;
-      padding: 0;
-    margin: 0;
 
+/* Sidebar (your original 70px width retained) */
+.Rightbar {
+  width: 60px;
+  height: 100vh;
+  background-color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-top: 100px;
+  transition: all 0.3s ease;
 }
-.Rightbar .Rightbar-tap{
-    color: var( --primary-color-light);
-    font-size: 30px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    
-  
+.Rightbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
-.Rightbar .Rightbar-tap span{
-    display: none;
-    position: absolute;
-    top:  95%;
-    left: 0;
-    margin-top: 5px;
-}
-.Rightbar .Rightbar-tap:hover span{
-    display: block;
-    font-size: 10px;
-}
-@media (max-width:700px) {
-    .Rightbar ul{
-        height: calc(100vh - 120px);
-    }
 
-    
+.Rightbar-tap {
+  color: var(--primary-color-light);
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.Rightbar-tap span {
+  font-size: 10px;
+  display: block;
+}
+
+.Rightbar-tap.active {
+  color: #60a5fa;
+  transform: scale(1.05);
+}
+
+/* Sliding tool panel */
+.ToolPanel {
+  width: 400px;
+  height: 100vh;
+  background-color: #f9fafb;
+  border-left: 2px solid #e5e7eb;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease forwards;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 90px;
+  left: 15px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #374151;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  color: #1d4ed8;
+}
+
+.tool-content {
+  padding: 50px 20px 20px 20px;
+  overflow-y: auto;
+  flex: 1;
 }

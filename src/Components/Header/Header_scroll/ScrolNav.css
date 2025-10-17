@@ -21,9 +21,6 @@
 }
 .brand_logo img{
     width: 150px;
-  
-  
-  
     object-fit: cover;
     transition: all 0.3s ease-in-out;
 }

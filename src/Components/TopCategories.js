@@ -47,7 +47,7 @@ useEffect(() => {
             </div>
 
     </div>
-  )
+  );
 }
 
 export default TopCategories

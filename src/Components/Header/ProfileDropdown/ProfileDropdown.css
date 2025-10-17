@@ -27,6 +27,7 @@
     border: 1px solid #5a5959;
     border-radius: 25px;
     padding: 5px 10px;
+   
   }
   header .btn-container{
     width: auto;
@@ -38,9 +39,37 @@ header .btn-container a{
   .username{
     display: block;
   }
-  @media (max-width:600px) {
-    .username{
-      display: none;
+  .profile-nav-contain{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+.profile-nav{
+  width: 120px;
+  min-height: 120px;
+  background-color: var(--bg);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+  
+}
+.profile-nav:hover{
+  background-color: #edeeeb;
+
+}
+.dropdown-menu{
+  width: 400px;
+}
+  @media (max-width:1000px) {
+    .dropdown-menu{
+      width: 100%;
     }
-    
+    .user .dropdown-toggle{
+      margin: 10px;
+    }
+   
   }

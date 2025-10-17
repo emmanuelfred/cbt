@@ -1,0 +1,144 @@
+.subscription-page {
+  padding: 20px;
+}
+
+.subscription-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.plan-header p {
+    font-size: 0.9em !important;
+    margin: 0;
+
+}
+
+.back-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.plans-swiper {
+  margin-top: 30px;
+  padding-bottom: 40px;
+}
+
+.plan-card {
+  background: #F8F9F5;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+}
+
+.price {
+  font-size: 1.5rem;
+  color: #15253a;
+  font-weight: bold;
+}
+
+.subscribe-btn {
+  display: inline-block;
+  margin: 15px 0;
+  padding: 10px 20px;
+  background-color: #15253a;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+}
+
+.plan-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.plan-icon {
+  font-size: 1rem;
+}
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(21, 37, 58, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999 !important; /* increased */
+}
+
+.modal {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  height: fit-content;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 10000; /* ensure modal is above overlay */
+  display: block;
+    position: relative;
+}
+
+.modal h3 {
+  color: #15253a;
+  margin-bottom: 10px;
+}
+
+.modal-input-group {
+  margin: 15px 0;
+}
+
+.modal-input-group input {
+  width: 60px;
+  padding: 5px;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.total-amount {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.proceed-btn {
+  background-color: #014925;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: #888;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}

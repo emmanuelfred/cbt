@@ -2,7 +2,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Style/index.css';
 
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'aos/dist/aos.css';
@@ -21,17 +21,76 @@ import SingleBlog from "./Pages/SingleBlog";
 import MobileHeader from "./Components/Header/Mobile/MobileHeader";
 import Classroom from "./Pages/Classroom";
 import ContactUs from "./Pages/ContactUs";
+import VerifyEmail from "./Pages/VerifyEmail";
+import LoadingSpinner from "./Components/LoadingSpinner";
 
+
+import { Toaster } from "react-hot-toast";
+import { useAuthStore } from "./store/authStore";
+import { useEffect } from "react";
+import AddCourseForm from "./Pages/AddCourseForm";
+import Unsubscribe from "./Pages/Unsubscribe";
+import TakeCourse from "./Pages/TakeCourse";
+import CoursePage from "./Pages/CoursePage";
+import Chatbot from "./Pages/Chatbot";
+import CalculatorTool from "./Pages/CalculatorTool";
+import DictionaryTool from "./Pages/DictionaryTool";
 // List of routes where header/footer should be hidden
-const HIDDEN_LAYOUT_ROUTES = ["/register", "/login", "/classroom"];
+const HIDDEN_LAYOUT_ROUTES = ["/register", "/login", "/classroom",'/verify-email','/unsubscribe','/course'];
+const Apppage=['/ai-chatbox','/calculator','/dictionary']
+// protect routes that require authentication
+const ProtectedRoute = ({ children }) => {
+	const { isAuthenticated, user } = useAuthStore();
+
+	if (!isAuthenticated) {
+		return <Navigate to='/login' replace />;
+	}
+
+	if (!user.isVerified) {
+		return <Navigate to='/verify-email' replace />;
+	}
+
+	return children;
+};
+
+// redirect authenticated users to the home page
+const RedirectAuthenticatedUser = ({ children }) => {
+	const { isAuthenticated, user } = useAuthStore();
+
+	if (isAuthenticated && user.isVerified) {
+		return <Navigate to='/classroom' replace />;
+	}
+
+	return children;
+};
 
 function AppWrapper() {
-  const location = useLocation();
+   const location = useLocation();
   const isHiddenRoute = HIDDEN_LAYOUT_ROUTES.includes(location.pathname);
+  const isAppPage=Apppage.includes(location.pathname);
 
+  const { isCheckingAuth, checkAuth } = useAuthStore();
+
+	useEffect(() => {
+		checkAuth();
+	}, [checkAuth]);
+
+	if (isCheckingAuth) return <LoadingSpinner />;
+
+ 
   return (
     <>
-      {!isHiddenRoute ? <Header /> : <div className='second-header'><Main_Nav /> <MobileHeader /></div>}
+      {/* ✅ Header logic */}
+      {!isAppPage && ( // hide header for app pages
+        !isHiddenRoute ? (
+          <Header />
+        ) : (
+          <div className="second-header">
+            <Main_Nav />
+            <MobileHeader />
+          </div>
+        )
+      )}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -42,13 +101,32 @@ function AppWrapper() {
         <Route path="/pricing" element={<Plans />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/register" element={<Signin />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/verify-email" element={<VerifyEmail />} />
+        <Route path="/unsubscribe" element={<Unsubscribe/>} />
+        <Route path="/ai-chatbox" element={<Chatbot/>} />
+        <Route path="/calculator" element={<CalculatorTool/>} />
+         <Route path="/dictionary" element={<DictionaryTool/>} />
+
+        
+        <Route path="/login" element={
+          <RedirectAuthenticatedUser>
+							<Login />
+						</RedirectAuthenticatedUser>
+          } />
+          <Route path="/course" element={
+          <ProtectedRoute>
+							<CoursePage/>
+						</ProtectedRoute>
+          } />
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/classroom" element={<Classroom />} />
+        <Route path="/classroom" element={ <ProtectedRoute><Classroom /></ProtectedRoute>} />
+         <Route path="/test" element={<AddCourseForm />} />
+
       </Routes>
 
-      {!isHiddenRoute && <Footer />}
+      {!isHiddenRoute && !isAppPage && <Footer />}
+      	<Toaster />
     </>
   );
 }

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../Style/Signin.css'
-import { Link } from 'react-router-dom';
+
 import ImageWithLoading from '../Components/ImageWithLoading';
+import FloatingShape from '../Components/FloatingShape'
 import AOS from 'aos';
+import LoginPage from '../imported/LoginPage';
 
 
 function Login() {
@@ -19,86 +21,27 @@ function Login() {
        // ← allows the animation to happen more than once
     });
   }, []);
- const [formData, setFormData] = useState({
-     first_name: '',
-  
-     password: '',
-     email: '',
-    
-   });
- 
-   const handleChange = (e) => {
-     const { name, value } = e.target;
-     setFormData(prev => ({ ...prev, [name]: value }));
-   };
+
  
  
  
-   const handleSubmit = (e) => {
-     e.preventDefault();
-     console.log(formData);
-     alert("Form submitted successfully!");
-     // You can send the data to your backend here
-   };
+ 
   
    return (
     loading ? 
       (<div style={{padding:10}} ><ImageWithLoading height={900}/></div>)
        : (
-        <div className='Signin'  style={{justifyContent:'center' ,alignItems:'center', backgroundPosition:'center'}}>
-        <div className='signin-container' style={{margin:0,height:'fit-content',borderRadius:10}}  data-aos="zoom-out">
-     <h2 style={{marginTop:0}}>Login</h2>
-     <form onSubmit={handleSubmit} >
-     
-         <div className='form-step'>
-           <input
-           
-             type="text"
-             name="first_name"
-             placeholder="Full Name"
-             value={formData.first_name}
-             onChange={handleChange}
-             required
-           />
-           <input
-             type="text"
-             name="email"
-             placeholder="Email"
-             value={formData.last_name}
-             onChange={handleChange}
-             required
-           />
-          
-            <label className='checkboxContainer'>
-             <input
-               type="checkbox"
-               name="agree"
-               className='checknox'
-               checked={formData.agree || false}
-               onChange={(e) => setFormData({ ...formData, agree: e.target.checked })}
-               required
-             />
-             <span className='checkboxLabel'>
-              Remainber Me
-             </span>
-           </label>
-           
-           <button type="button">Sign In</button>
-         </div>
-         <p style={{textAlign:'center'}}>
-          
-                <Link to={'/login'}>Forgotten account?</Link>
-               </p>
-   
+        <div
+          className='min-h-screen bg-gradient-to-br from-[#15253a] via-[#20537c] to-[#15253a] flex items-center justify-center relative overflow-hidden'
+        >
+          <FloatingShape color='bg-[#f4825d]' size='w-64 h-64' top='-5%' left='10%' delay={0} />
+          <FloatingShape color='bg-[#f4825d]' size='w-48 h-48' top='70%' left='80%' delay={5} />
+          <FloatingShape color='bg-[#f4825d]' size='w-32 h-32' top='40%' left='-10%' delay={2} />
+          <LoginPage/>
 
-      
+        </div>
 
-     
-     </form>
-    
-   </div>
-
-   </div>
+        
 
        )
    
