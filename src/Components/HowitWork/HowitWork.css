@@ -19,7 +19,7 @@
   
   /* Each step box */
   .step {
-    border: 2px dashed #f4825d;
+    border: 2px dashed #014925;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     flex: 1 1 30%;
@@ -44,7 +44,7 @@
   }
   .step-number {
  
-    color: #f4825d;
+    color: #014925;
 
     font-weight: bold;
     font-size: 2.2rem;
@@ -57,7 +57,7 @@
    padding: 10px;
    height: 50px;
     border-radius: 7px;
-    background-color: #f4825d;
+    background-color: #014925;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,7 +75,7 @@
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #f4825d;
+    color: #014925;
   }
   
   .step-description {

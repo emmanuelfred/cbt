@@ -35,6 +35,7 @@ import CoursePage from "./Pages/CoursePage";
 import Chatbot from "./Pages/Chatbot";
 import CalculatorTool from "./Pages/CalculatorTool";
 import DictionaryTool from "./Pages/DictionaryTool";
+import CourseDetail from "./Pages/CourseDetail";
 // List of routes where header/footer should be hidden
 const HIDDEN_LAYOUT_ROUTES = ["/register", "/login", "/classroom",'/verify-email','/unsubscribe','/course'];
 const Apppage=['/ai-chatbox','/calculator','/dictionary']
@@ -66,7 +67,8 @@ const RedirectAuthenticatedUser = ({ children }) => {
 
 function AppWrapper() {
    const location = useLocation();
-  const isHiddenRoute = HIDDEN_LAYOUT_ROUTES.includes(location.pathname);
+     const isCourseDetailPage = location.pathname.startsWith("/course/");
+  const isHiddenRoute = HIDDEN_LAYOUT_ROUTES.includes(location.pathname)|| isCourseDetailPage;
   const isAppPage=Apppage.includes(location.pathname);
 
   const { isCheckingAuth, checkAuth } = useAuthStore();
@@ -106,6 +108,7 @@ function AppWrapper() {
         <Route path="/ai-chatbox" element={<Chatbot/>} />
         <Route path="/calculator" element={<CalculatorTool/>} />
          <Route path="/dictionary" element={<DictionaryTool/>} />
+         <Route path="/course/:id" element={<CourseDetail/>} />
 
         
         <Route path="/login" element={

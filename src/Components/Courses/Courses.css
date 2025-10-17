@@ -24,8 +24,12 @@
   
   .course-image img {
     width: 100%;
-    height: auto;
+  
     display: block;
+    height: 222px;
+    min-width: 100%;
+    object-fit: cover;
+    object-position: center;
   }
   
   .course-category {

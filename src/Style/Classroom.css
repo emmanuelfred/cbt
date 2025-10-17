@@ -28,10 +28,12 @@
     flex-direction: column;
     padding: 10px;
     padding-top: 120px;
+    gap: 5px;
  
 }
 .Leftbar li{
-     padding: 15px;
+     padding: 10px 15px;
+      border-radius: 10px;
 
 }
 .Leftbar li a{
@@ -43,7 +45,7 @@
 }
 .Leftbar li:hover{
     background-color: #f4835d10;
-    border-radius: 10px;
+   
     
 }
 .Leftbar .active{

@@ -3,8 +3,10 @@ import './Courses.css';
 import { FaBook, FaClock, FaStarHalfAlt } from 'react-icons/fa';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import { useNavigate } from "react-router-dom";
 
 const Course = ({
+  id,
   image,
   category,
   price,
@@ -16,8 +18,12 @@ const Course = ({
   rating,
   loading = false
 }) => {
+   const navigate = useNavigate();
   return (
-    <div className="course-card">
+    <div className="course-card" onClick={()=>{
+      navigate(`/course/${id}`)
+
+    }}>
       <div className="course-image">
         {loading ? (
           <Skeleton height={180} />

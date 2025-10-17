@@ -18,7 +18,7 @@ export const useCbtstore = create((set) => ({
     set({ loading: true, error: null });
     try {
       const res = await axios.get(`${API_URL}/cbt/exams`);
-      console.log(res.data.exams);
+    
       set({ exams: res.data.exams, loading: false });
     } catch (err) {
       console.error("Failed to fetch exams:", err);

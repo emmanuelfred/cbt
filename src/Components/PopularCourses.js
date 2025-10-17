@@ -1,111 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import Course from './Courses/Courses';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper/modules';
-import Skeleton from 'react-loading-skeleton';
-
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'react-loading-skeleton/dist/skeleton.css';
-import ImageWithLoading from './ImageWithLoading';
-
-const courses = [
-  {
-    image: 'https://kinforce.net/learen/wp-content/uploads/2022/08/coding-web-game-at-home-V3L73RC.jpg',
-    category: 'Business',
-    price: 35,
-    instructorImg: 'https://kinforce.net/learen/wp-content/uploads/2022/08/portrait-of-a-confident-young-businessman-with-han-VC5ZTQW.jpg',
-    instructorName: 'Jane Cooper',
-    title: 'Effective business pages on social media',
-    lessons: 13,
-    duration: '3h 15m',
-    rating: 4.2,
-  },
-  {
-    image: 'https://kinforce.net/learen/wp-content/uploads/2022/08/coding-web-game-at-home-V3L73RC.jpg',
-    category: 'Business',
-    price: 35,
-    instructorImg: 'https://kinforce.net/learen/wp-content/uploads/2022/08/portrait-of-a-confident-young-businessman-with-han-VC5ZTQW.jpg',
-    instructorName: 'Jane Cooper',
-    title: 'Effective business pages on social media',
-    lessons: 13,
-    duration: '3h 15m',
-    rating: 4.2,
-  },
-  {
-    image: 'https://kinforce.net/learen/wp-content/uploads/2022/08/coding-web-game-at-home-V3L73RC.jpg',
-    category: 'Business',
-    price: 35,
-    instructorImg: 'https://kinforce.net/learen/wp-content/uploads/2022/08/portrait-of-a-confident-young-businessman-with-han-VC5ZTQW.jpg',
-    instructorName: 'Jane Cooper',
-    title: 'Effective business pages on social media',
-    lessons: 13,
-    duration: '3h 15m',
-    rating: 4.2,
-  },
-  {
-    image: 'https://kinforce.net/learen/wp-content/uploads/2022/08/coding-web-game-at-home-V3L73RC.jpg',
-    category: 'Business',
-    price: 35,
-    instructorImg: 'https://kinforce.net/learen/wp-content/uploads/2022/08/portrait-of-a-confident-young-businessman-with-han-VC5ZTQW.jpg',
-    instructorName: 'Jane Cooper',
-    title: 'Effective business pages on social media',
-    lessons: 13,
-    duration: '3h 15m',
-    rating: 4.2,
-  },
-  {
-    image: 'https://kinforce.net/learen/wp-content/uploads/2022/08/coding-web-game-at-home-V3L73RC.jpg',
-    category: 'Business',
-    price: 35,
-    instructorImg: 'https://kinforce.net/learen/wp-content/uploads/2022/08/portrait-of-a-confident-young-businessman-with-han-VC5ZTQW.jpg',
-    instructorName: 'Jane Cooper',
-    title: 'Effective business pages on social media',
-    lessons: 13,
-    duration: '3h 15m',
-    rating: 4.2,
-  },
-  {
-    image: 'https://kinforce.net/learen/wp-content/uploads/2022/08/coding-web-game-at-home-V3L73RC.jpg',
-    category: 'Business',
-    price: 35,
-    instructorImg: 'https://kinforce.net/learen/wp-content/uploads/2022/08/portrait-of-a-confident-young-businessman-with-han-VC5ZTQW.jpg',
-    instructorName: 'Jane Cooper',
-    title: 'Effective business pages on social media',
-    lessons: 13,
-    duration: '3h 15m',
-    rating: 4.2,
-  },
-  // Add more course objects as needed
-];
+import React, { useEffect, useState } from "react";
+import Course from "./Courses/Courses";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import Skeleton from "react-loading-skeleton";
+import "swiper/css";
+import "swiper/css/pagination";
+import "react-loading-skeleton/dist/skeleton.css";
+import ImageWithLoading from "./ImageWithLoading";
+import { usecourseStore } from "../store/courseStore";
 
 function PopularCourses() {
-  const [loading, setLoading] = useState(true);
 
+  
+  
+  const {courses,fetchRecommendedCourses,loading,error}= usecourseStore()
+
+  // ✅ Fetch courses from backend API
   useEffect(() => {
-    setTimeout(() => setLoading(false), 1000); // Simulate async fetch
+   fetchRecommendedCourses()
   }, []);
+  console.log(courses)
 
   const renderSkeletonCourse = () => (
-    <div className="course-card">
+    <div className="course-card" >
       <div className="course-image">
         <ImageWithLoading height={180} />
-        
-        <div style={{ position: 'absolute', top: 10, left: 10 }}>
+        <div style={{ position: "absolute", top: 10, left: 10 }}>
           <Skeleton width={80} height={20} />
         </div>
-        <div style={{ position: 'absolute', top: 10, right: 10 }}>
+        <div style={{ position: "absolute", top: 10, right: 10 }}>
           <Skeleton width={40} height={20} />
         </div>
       </div>
 
       <div className="course-content">
-        <div className="instructor-info" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-        <div style={{overflow:'hidden',width:40,height:40,borderRadius:'50%'}}>
-
-          <ImageWithLoading height={40} width={40}/>
-        </div>
-         
+        <div
+          className="instructor-info"
+          style={{ display: "flex", alignItems: "center", gap: "10px" }}
+        >
+          <div style={{ overflow: "hidden", width: 40, height: 40, borderRadius: "50%" }}>
+            <ImageWithLoading height={40} width={40} />
+          </div>
           <Skeleton width={100} height={15} />
         </div>
 
@@ -126,15 +61,22 @@ function PopularCourses() {
     <div className="popular-courses-container mt-5 container">
       {loading ? (
         <div className="text-center mb-4">
-          <Skeleton width={'40%'} height={40} />
-          <Skeleton width={'70%'} height={50} />
-          <Skeleton width={'80%'} height={20} />
+          <Skeleton width={"40%"} height={40} />
+          <Skeleton width={"70%"} height={50} />
+          <Skeleton width={"80%"} height={20} />
+        </div>
+      ) : error ? (
+        <div className="text-center text-danger mb-4">
+          <h4>{error}</h4>
         </div>
       ) : (
         <div className="text-center mb-4">
           <h3>Our Popular Courses</h3>
           <h1>Explore Our Popular Courses</h1>
-          <p>Discover a wide range of expert-led courses tailored to your personal and professional growth.</p>
+          <p>
+            Discover a wide range of expert-led courses tailored to your personal
+            and professional growth.
+          </p>
         </div>
       )}
 
@@ -154,7 +96,22 @@ function PopularCourses() {
       >
         {(loading ? Array(4).fill({}) : courses).map((course, index) => (
           <SwiperSlide key={index} className="slide-course">
-            {loading ? renderSkeletonCourse() : <Course {...course} />}
+            {loading ? (
+              renderSkeletonCourse()
+            ) : (
+              <Course
+              id={course._id}
+                image={course.course_thumbnail}
+                category={course.category || "General"}
+                price={course.discount_price || course.original_price || 0}
+                instructorImg={course.instructor_img}
+                instructorName={course.instructor}
+                title={course.course_title}
+                lessons={course.sections}
+                duration={`${course.course_length || "0"}h`}
+                rating={course.average_rating || 0}
+              />
+            )}
           </SwiperSlide>
         ))}
       </Swiper>
@@ -163,4 +120,3 @@ function PopularCourses() {
 }
 
 export default PopularCourses;
-
