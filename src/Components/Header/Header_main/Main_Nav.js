@@ -1,6 +1,6 @@
 import React from 'react'
 import './Main_Nav.css'
-import logo from '../../../Assets/mobile-logo.png'
+import logo from '../../../Assets/edenites-logo.png'
 import { AiOutlineSearch } from "react-icons/ai";
 import Explore from '../Expore/Explore';
 import ProfileDropdown from '../ProfileDropdown/ProfileDropdown';

@@ -1,5 +1,5 @@
 import React, { useEffect} from 'react'
-import logo from '../../../Assets/desktop-logo.png';
+import logo from '../../../Assets/edenites-logo.png';
 import { Link } from 'react-router-dom';
 
 import './ScrolNav.css';

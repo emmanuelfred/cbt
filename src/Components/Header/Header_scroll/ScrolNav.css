@@ -14,13 +14,13 @@
    
 }
 .brand_logo{
-    width: 70px;
+   width: 100px;
     height: 70px;
     position: relative;
 
 }
 .brand_logo img{
-    width: 150px;
+    width: 130px;
     object-fit: cover;
     transition: all 0.3s ease-in-out;
 }

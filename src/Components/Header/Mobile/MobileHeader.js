@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import './MobileHeader.css';
-import logo from '../../../Assets/mobile-logo.png'
+import logo from '../../../Assets/edenites-favicon.png'
 import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import ImageWithLoading from '../../ImageWithLoading';
