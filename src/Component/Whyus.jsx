@@ -1,9 +1,9 @@
 import React from 'react'
-import aboutImg from '../assets/boy.png'
-import puzzle from '../assets/puzzle.png'
-import rocket from '../assets/rocket.png'
-import cele from '../assets/cele.png'
-import award from '../assets/award.png'
+import aboutImg from '../assets/boy.PNG'
+import puzzle from '../assets/puzzle.PNG'
+import rocket from '../assets/rocket.PNG'
+import cele from '../assets/cele.PNG'
+import award from '../assets/award.PNG'
 
 function Whyus() {
   return (
