@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import jambLogo from "../assets/jamb.png";
-import waecLogo from "../assets/waec.png";
+import waecLogo from "../assets/WAEC.png";
 import necoLogo from "../assets/neco.png";
 import { useCbtstore } from "../Store/cbtStore";
 import { useNavigate } from "react-router-dom";
