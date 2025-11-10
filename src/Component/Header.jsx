@@ -16,8 +16,8 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-2 md:py-4 flex justify-between items-center">
         {/* Logo */}
         <a href="/home">
-           <img src={logo} alt="edenites technologies" style={{width:130}} className="hidden md:block"/>
-           <img src={moblielogo} alt="edenites technologies" style={{width:40}} className="block md:hidden"/>
+           <img src={logo} alt="edenites technologies" style={{width:130}} className=""/>
+           {/*<img src={moblielogo} alt="edenites technologies" style={{width:40}} className="block md:hidden"/>*/}
 
         </a>
        

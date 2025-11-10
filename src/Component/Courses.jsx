@@ -1,5 +1,7 @@
+// --- Courses.jsx ---
 import React, { useEffect, useState } from "react";
 import { usecourseStore } from "../Store/courseStore";
+import Coursecard from "./Coursecard";
 
 function Courses() {
   const { courses, fetchRecommendedCourses, loading, error } = usecourseStore();
@@ -51,7 +53,8 @@ function Courses() {
     );
   }
 
-  const currentCourses = groupedCourses[activeCategory] || [];
+  // Display only the first 3 courses for each category
+  const currentCourses = (groupedCourses[activeCategory] || []).slice(0, 3);
 
   return (
     <section className="py-16 bg-white text-center" id="courses">
@@ -73,41 +76,37 @@ function Courses() {
                   : "text-[#0C6F89] border-[#0C6F89] hover:bg-[#0C6F89] hover:text-white"
               }`}
             >
-              {category}
+              {category.toUpperCase()}
             </button>
           ))}
         </div>
 
-        {/* Course Cards (can convert this part to a slide if too many) */}
+        {/* Course Cards */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
           {currentCourses.map((course) => (
-            <div
+            <Coursecard
               key={course._id}
-              className="bg-[#0c70891c] rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all cursor-pointer"
-            >
-              <img
-                src={course.course_thumbnail}
-                alt={course.course_title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-5 text-left">
-                <h3 className="text-lg font-bold text-[#014925] mb-2">
-                  <a href={`/course/${course._id}`}>{course.course_title}</a>
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  {course.short_description?.slice(0, 100)}...
-                </p>
-                <p className="text-sm mt-3 text-[#0C6F89] font-semibold">
-                  Instructor: {course.instructor}
-                </p>
-              </div>
-            </div>
+              id={course._id}
+              image={course.course_thumbnail}
+              category={course.subcategory || course.category}
+              price={course.discount_price || course.original_price || 0}
+              instructorImg={course.instructor_img}
+              instructorName={course.instructor}
+              title={course.course_title}
+              lessons={course.sections || 0}
+              short={course.short_description}
+              duration={course.course_length || "N/A"}
+              rating={course.average_rating || 0}
+            />
           ))}
         </div>
 
         {/* See All Button */}
         <div className="mt-10">
-          <a href="/courses" className="px-8 py-3 bg-[#0C6F89] text-white rounded-full font-semibold hover:bg-[#013b1f] transition-all">
+          <a
+            href="/courses"
+            className="px-8 py-3 bg-[#0C6F89] text-white rounded-full font-semibold hover:bg-[#013b1f] transition-all"
+          >
             See All Courses
           </a>
         </div>

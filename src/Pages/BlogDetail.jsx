@@ -12,7 +12,7 @@ const BlogDetail = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/blog/get_blog/${id}`);
+        const { data } = await axios.get(`https://backend-w94p.onrender.com/api/blog/get_blog/${id}`);
         setBlog(data.blog);
         setRelatedPosts(data.related);
       } catch (error) {

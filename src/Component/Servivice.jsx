@@ -4,7 +4,7 @@ function Service() {
   return (
     <section className="py-10">
       <div
-        className="max-w-6xl mx-auto px-6 bg-[#0c70891c] py-10"
+        className="max-w-6xl mx-2 md:mx-auto px-6 bg-[#0c70891c] py-10"
         style={{ borderRadius: '160px 70px 180px 100px' }}
       >
         <div className="grid grid-cols-1 md:grid-cols-3 text-center">

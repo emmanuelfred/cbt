@@ -41,7 +41,7 @@ function App() {
   );
 
   return (
-    <div className={isDashboardRoute ? '' : 'pt-20'}>
+    <div className={isDashboardRoute||location.pathname=='/login'||location.pathname=='/signup' ? '' : 'pt-20'}>
       <Preloader />
       <ToolHub />
 
@@ -78,7 +78,7 @@ function App() {
         </Route>
       </Routes>
 
-      {!isDashboardRoute && <Footer />}
+      {isDashboardRoute||location.pathname=='/login'||location.pathname=='/signup' ? '' : <Footer />}
     </div>
   );
 }

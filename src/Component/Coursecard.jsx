@@ -13,6 +13,7 @@ const Coursecard = ({
   lessons,
   duration,
   rating,
+  short,
   loading = false,
 }) => {
   const navigate = useNavigate();
@@ -55,9 +56,13 @@ const Coursecard = ({
         </div>
 
         {/* Course Title */}
-        <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
+        <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 text-left">
           {title}
         </h3>
+        <p className="text-sm text-gray-500 my-3 text-left">
+           {short}
+
+        </p>
 
         {/* Course Details */}
         <ul className="flex items-center gap-5 text-sm text-gray-600">

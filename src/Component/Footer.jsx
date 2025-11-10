@@ -101,7 +101,7 @@ const Footer = () => {
               <Phone size={18} /> +234 806 190 9461
             </li>
             <li className="flex items-center gap-3">
-              <MapPin size={18} /> 23 Learning Avenue, Abakaliki, Nigeria
+              <MapPin size={18} /> 21 Afikpo Rd, Abakaliki, Nigeria
             </li>
           </ul>
         </div>

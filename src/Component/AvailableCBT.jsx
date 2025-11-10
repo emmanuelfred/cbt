@@ -32,7 +32,7 @@ function AvailableCBT() {
   ];
 
   return (
-    <section className="max-w-6xl mx-auto px-6 bg-[#0c70891c] py-10 mb-20 mt-20"
+    <section className="max-w-6xl  px-6 bg-[#0c70891c] py-10 mx-2 md:mx-auto mb-20 mt-20"
         style={{ borderRadius: '160px 70px 180px 100px' }} id="cbt">
       <div className="max-w-7xl mx-auto px-6 text-center">
         {/* Section Title */}

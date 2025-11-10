@@ -56,6 +56,7 @@ function RecommendedCourses() {
               instructorName={course.instructor}
               title={course.course_title}
               lessons={course.sections}
+              short={course.short_description}
               duration={`${course.course_length} hrs`}
               rating={course.average_rating || 0}
               loading={loading}

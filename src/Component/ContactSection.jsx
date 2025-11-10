@@ -10,7 +10,7 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-20 bg-[#f9fafb]">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="text-4xl font-bold text-[#014925] mb-3">
@@ -99,7 +99,7 @@ const ContactSection = () => {
                 <div className="flex items-center gap-3">
                   <MapPin className="text-[#0C6F89]" />
                   <span className="text-gray-700">
-                    23 Learning Avenue, Abakaliki, Nigeria
+                    21 Afikpo Road, Abakaliki, Nigeria
                   </span>
                 </div>
               </div>

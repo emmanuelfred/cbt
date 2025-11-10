@@ -9,7 +9,7 @@ const CourseDetail = () => {
   const { isAuthenticated,user,login, isLoading, error} = useAuthStore();
   const [showUserModal, setShowUserModal] = useState(false);
   const [tempUser, setTempUser] = useState({ email: "", password: "" });
-  const fetchCoursedetail = usecourseStore((s) => s.fetchCoursedetail);
+const fetchCourseDetail = usecourseStore((s) => s.fetchCourseDetail);
   const course = usecourseStore((s) => s.course);
   const loading = usecourseStore((s) => s.loading);
   const course_error = usecourseStore((s) => s.error);
@@ -19,9 +19,9 @@ const CourseDetail = () => {
 
   useEffect(() => {
     if (id) {
-      fetchCoursedetail(id);
+      fetchCourseDetail(id);
     }
-  }, [id, fetchCoursedetail]);
+  }, [id, fetchCourseDetail]);
 
 
   if (loading)
@@ -76,7 +76,7 @@ const CourseDetail = () => {
 
   return (
     <>
-        <div className="mx-auto p-6 pt-20 md:pt-25 md:px-30 flex flex-col md:flex-row gap-8">
+        <div className="max-w-6xl mx-auto px-3 py-6  flex flex-col md:flex-row gap-8">
       {/* LEFT COLUMN */}
       <div className="flex-[2] space-y-6" id="left-col">
         <h1
@@ -164,7 +164,7 @@ const CourseDetail = () => {
       </div>
 
       {/* RIGHT COLUMN */}
-      <div className="flex-1 space-y-6" id="right-col">
+      <div className="flex-1 space-y-6  " id="right-col">
         {/* ✅ INTRO VIDEO WITH THUMBNAIL OVERLAY */}
         <div className="relative w-full">
           {!playVideo ? (

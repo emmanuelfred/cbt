@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Search } from "lucide-react";
 import { usecourseStore } from "../Store/courseStore";
+import Coursecard from "../Component/Coursecard";
 
 function CourseSearchPage() {
   const { courses, fetchRecommendedCourses, loading, error } = usecourseStore();
@@ -62,12 +63,12 @@ function CourseSearchPage() {
   return (
     <section className="py-16 bg-white text-center min-h-screen" id="courses">
       <div className="max-w-7xl mx-auto px-6">
-        {/* --- Section Title --- */}
+        {/* Section Title */}
         <h2 className="text-3xl md:text-4xl font-bold text-[#014925] mb-6">
           Search <span className="text-[#0C6F89]">Courses</span>
         </h2>
 
-        {/* --- Search Bar --- */}
+        {/* Search Bar */}
         <div className="relative max-w-md mx-auto mb-10">
           <input
             type="text"
@@ -82,7 +83,7 @@ function CourseSearchPage() {
           />
         </div>
 
-        {/* --- Category Tabs --- */}
+        {/* Category Tabs */}
         <div className="flex justify-center gap-4 flex-wrap mb-10">
           {Object.keys(groupedCourses).map((category) => (
             <button
@@ -94,36 +95,29 @@ function CourseSearchPage() {
                   : "text-[#0C6F89] border-[#0C6F89] hover:bg-[#0C6F89] hover:text-white"
               }`}
             >
-              {category}
+              {category.toUpperCase()}
             </button>
           ))}
         </div>
 
-        {/* --- Course Cards --- */}
+        {/* Course Cards */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
           {currentCourses.length > 0 ? (
             currentCourses.map((course) => (
-              <div
+              <Coursecard
                 key={course._id}
-                className="bg-[#0c70891c] rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all cursor-pointer"
-              >
-                <img
-                  src={course.course_thumbnail}
-                  alt={course.course_title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-5 text-left">
-                  <h3 className="text-lg font-bold text-[#014925] mb-2">
-                    <a href={`/course/${course._id}`}>{course.course_title}</a>
-                  </h3>
-                  <p className="text-gray-700 text-sm">
-                    {course.short_description?.slice(0, 100)}...
-                  </p>
-                  <p className="text-sm mt-3 text-[#0C6F89] font-semibold">
-                    Instructor: {course.instructor}
-                  </p>
-                </div>
-              </div>
+                id={course._id}
+                image={course.course_thumbnail}
+                category={course.subcategory || course.category}
+                price={course.discount_price || course.original_price || 0}
+                instructorImg={course.instructor_img}
+                instructorName={course.instructor}
+                title={course.course_title}
+                short={course.short_description}
+                lessons={course.sections || 0}
+                duration={course.course_length || "N/A"}
+                rating={course.average_rating || 0}
+              />
             ))
           ) : (
             <p className="text-gray-500 col-span-full">
