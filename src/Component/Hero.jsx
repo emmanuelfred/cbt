@@ -1,5 +1,5 @@
 import React from 'react'
-import hero_image from '../assets/hero.png';
+import hero_image from '../assets/hero.PNG';
 function Hero() {
   return (
     <section class="hero-section  pt-20">
