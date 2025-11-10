@@ -1,6 +1,6 @@
 import React from "react";
 import jambLogo from "../assets/jamb.png";
-import waecLogo from "../assets/waec.png";
+import waecLogo from "../assets/WAEC.png";
 import necoLogo from "../assets/neco.png";
 
 function AvailableCBT() {
