@@ -1,0 +1,32 @@
+
+.user-container svg{
+  
+    font-size: 40px;
+  }
+  #profile-dropdown{
+    min-width: 300px;
+    right: 0;
+   }
+   #profile-dropdown-button{
+    width: 100%;
+    
+   }
+  
+  @media (max-width:800px) {
+   #profile-dropdown{
+    min-width: none;
+    right: 0;
+    min-width: 250px;
+  
+   }#profile-dropdown-button{
+    width: 100%;
+    min-width: none;
+   }
+   #left-col{
+    order: 2;
+   }
+   #right-col{
+    order: 1;
+   }
+   
+  }

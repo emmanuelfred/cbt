@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500&display=swap');
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100vw;
+
+
+
+}
+/* Preloader.css */
+.preloader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.ball {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(to bottom,#0C6F89,#014925);
+  border-radius: 50%;
+  position: absolute;
+}
+
+/* Ball falls from top to center */
+.fall {
+  animation: fall 1s ease-in forwards;
+}
+
+/* Ball expands to fill the screen */
+.expand {
+  animation: expand 0.5s ease forwards;
+}
+.stat-container h4{
+  font-weight: 600;
+}
+/* Falling animation */
+@keyframes fall {
+  0% {
+    top: -60px;
+    transform: scale(1);
+  }
+  100% {
+    top: 50%;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* Expand to full screen */
+@keyframes expand {
+  0% {
+    top: 50%;
+    transform: translateY(-50%) scale(1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  100% {
+    top: 0;
+    transform: translateY(0) scale(1);
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+}
+
+
+
