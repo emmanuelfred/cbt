@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuthStore } from "../Store/authStore";
 import toast from "react-hot-toast";
-import Resendotp from "../Component/resendotp";
+import ResendOtp from "../Component/Resendotp"
+
 
 const EmailVerificationPage = () => {
   const [code, setCode] = useState(["", "", "", "", "", ""]);
@@ -105,7 +106,7 @@ const EmailVerificationPage = () => {
           </button>
 
           {/* ✅ Fixed prop passing */}
-          <Resendotp email={email} />
+          <ResendOtp email={email} />
         </form>
       </div>
     </div>
