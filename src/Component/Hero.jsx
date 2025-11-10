@@ -2,7 +2,7 @@ import React from 'react'
 import hero_image from '../assets/hero.PNG';
 function Hero() {
   return (
-    <section class="hero-section  pt-20">
+    <section class="hero-section px-2 py-10 md:pt-15">
     <div class="container mx-auto  flex flex-col md:flex-row items-center justify-center">
         <div class="md:w-1/2 text-center md:text-left " style={{maxWidth:650}}>
             

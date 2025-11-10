@@ -3,7 +3,7 @@ import aboutImg from '../assets/aboutus.png'; // <-- replace with your actual im
 
 function AboutUs() {
   return (
-    <section className="py-20 bg-white wave-bg" id='about'>
+    <section className="py-20 bg-white wave-bg px-5" id='about'>
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* --- Image Section --- */}
         <div className="flex justify-center align-center">

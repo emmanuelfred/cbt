@@ -123,13 +123,13 @@ function ProfileDropdown() {
         >
           <Link
             to="/login"
-            className="bg-[#0C6F89] hover:bg-[#014925] text-white font-semibold py-3 px-6 rounded-full transition duration-300 shadow-md text-center"
+            className="bg-[#0C6F89] hover:bg-[#014925] text-white font-semibold py-2 px-10 rounded-full transition duration-300 shadow-md text-center"
           >
             Login
           </Link>
           <Link
             to="/signup"
-            className="bg-transparent border-2 border-[#0C6F89] hover:bg-[#0C6F89] text-[#0C6F89] hover:text-white font-semibold py-3 px-6 rounded-full transition duration-300 shadow-md text-center"
+            className="bg-transparent border-2 border-[#0C6F89] hover:bg-[#0C6F89] text-[#0C6F89] hover:text-white font-semibold py-2 px-10 rounded-full transition duration-300 shadow-md text-center"
           >
             Sign Up
           </Link>
