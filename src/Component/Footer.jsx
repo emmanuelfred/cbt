@@ -114,7 +114,7 @@ const Footer = () => {
             <p className="text-sm text-gray-200 leading-relaxed">
               Get updates on new courses, exams, and learning tips.
             </p>
-            <form className="flex mt-5" style={{width:100}}>
+            <form className="flex mt-5" style={{width:100,overflow:'hidden'}}>
               <input
                 type="email"
                 placeholder="Enter your email"
