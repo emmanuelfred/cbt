@@ -66,7 +66,7 @@ const StartCBT = () => {
   }
 
   return (
-    <div className="min-h-screen p-8 flex flex-col items-center">
+    <div className="min-h-screen p-4 md:p-8 flex flex-col items-center">
       <h2 className="text-3xl font-bold text-[#014925] mb-6">Start CBT</h2>
 
       {/* Select Exam */}

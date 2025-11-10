@@ -114,16 +114,17 @@ const Footer = () => {
             <p className="text-sm text-gray-200 leading-relaxed">
               Get updates on new courses, exams, and learning tips.
             </p>
-            <form className="flex mt-5" style={{width:100,overflow:'hidden'}}>
+            <form className="flex mt-5" style={{width:'100%',overflow:'hidden'}}>
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-3 py-2 rounded-l-lg border-3 border-white focus:outline-none text-white"
+                className="flex-1 px-3 py-2 rounded-l-lg border-3 border-white focus:outline-none text-white text-sm"
                 required
+                style={{maxWidth:'70%'}}
               />
               <button
                 type="submit"
-                className="bg-[#fff] text-[#0C6F89] px-4 py-2 rounded-r-lg font-semibold  transition"
+                className="bg-[#fff] text-[#0C6F89] p-2  rounded-r-lg font-semibold  transition text-sm"
               >
                 Subscribe
               </button>

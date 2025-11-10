@@ -41,7 +41,7 @@ function App() {
   );
 
   return (
-    <div className={isDashboardRoute ? '' : 'p-2'}>
+    <div className={isDashboardRoute ? '' : 'pt-20'}>
       <Preloader />
       <ToolHub />
 
