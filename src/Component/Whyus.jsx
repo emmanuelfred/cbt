@@ -1,5 +1,5 @@
 import React from 'react'
-import aboutImg from '../assets/boy.PNG'
+import aboutImg from '../assets/boy.png'
 import puzzle from '../assets/puzzle.PNG'
 import rocket from '../assets/rocket.PNG'
 import cele from '../assets/cele.PNG'
