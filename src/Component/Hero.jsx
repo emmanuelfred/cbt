@@ -44,7 +44,7 @@ function Hero() {
   </div>
 </div>
 
-        <div class="md:w-1/3 mt-10 md:mt-0 hidden md:block " >
+        <div class="md:w-1/3 mt-10 md:mt-0  " >
             <img src={hero_image} alt="Hero Image" class="w-full h-auto rounded-lg"/>
         </div>
     </div>

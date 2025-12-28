@@ -48,12 +48,13 @@ function ProfileDropdown() {
   const menuItems = [
     { path: "/dashboard", label: "Track Progress", icon: <FaHome /> },
     { path: "/dashboard/cbt", label: "Take CBT", icon: <FaPen /> },
-    { path: "/dashboard/register", label: "Register Course", icon: <FaBook /> },
+   /* { path: "/dashboard/register", label: "Register Course", icon: <FaBook /> },
     { path: "/dashboard/active", label: "Active Courses", icon: <FaBook /> },
     { path: "/dashboard/chat", label: "Chat Room", icon: <FaComments /> },
+     { path: "/dashboard/payment", label: "Payment & Subscription", icon: <FaMoneyBill /> },
+    { path: "/dashboard/settings", label: "Settings", icon: <FaCog /> },*/
     { path: "/dashboard/profile", label: "Profile", icon: <FaUser /> },
-    { path: "/dashboard/payment", label: "Payment & Subscription", icon: <FaMoneyBill /> },
-    { path: "/dashboard/settings", label: "Settings", icon: <FaCog /> },
+   
   ];
 
   return (

@@ -7,7 +7,7 @@ import award from '../assets/award.PNG'
 
 function Whyus() {
   return (
-    <section className="relative bg-[#0c70891c] overflow-hidden my-20" id='why'>
+    <section className="relative bg-[#0c70891c] overflow-hidden my-20 mt-10" id='why'>
       {/* --- Top Wave --- */}
       <div className="absolute top-0 left-0 w-full overflow-hidden rotate-180 leading-none">
         <svg

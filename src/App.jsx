@@ -12,7 +12,6 @@ import CourseDetail from './Pages/CourseDetail';
 import CourseSearchPage from './Pages/CourseSearch';
 import Blog from './Pages/Blog';
 import BlogDetail from './Pages/BlogDetail';
-import CourseViewer from './Pages/CourseViewer';
 import CBTComponent from './Pages/CBTComponent';
 import EmailVerificationPage from './Pages/EmailVerificationPage';
 import ForgetPassword from './Pages/ForgetPassword';
@@ -24,10 +23,14 @@ import Dashboard from './Pages/Dashboard';
 import DashboardHome from './Pages/Dashboard/TrackProgress';
 import CBTPage from './Pages/Dashboard/TakeCBT';
 import RegisterCourse from './Pages/Dashboard/RegisterCourse';
-import ActiveCourse from './Pages/Dashboard/ActiveCourse';
 import ChatRoom from './Pages/Dashboard/ChatRoom';
 import Profile from './Pages/Dashboard/Profile';
 import Payment from './Pages/Dashboard/Payment';
+import CoursePlayer from './Pages/Dashboard/CoursePlayer';
+import { Toaster } from "react-hot-toast";
+import MyCourses from './Pages/Dashboard/MyCourses';
+import Certificate from './Pages/Dashboard/Certificate';
+
 
 function App() {
   const location = useLocation();
@@ -42,6 +45,7 @@ function App() {
 
   return (
     <div className={isDashboardRoute||location.pathname=='/login'||location.pathname=='/signup' ? '' : 'pt-20'}>
+       <Toaster position="top-right" />
       <Preloader />
       <ToolHub />
 
@@ -70,11 +74,12 @@ function App() {
           <Route index element={<DashboardHome />} />
           <Route path="cbt" element={<CBTPage />} />
           <Route path="register" element={<RegisterCourse />} />
-          <Route path="active" element={<ActiveCourse />} />
+          <Route path="active" element={<MyCourses />} />
           <Route path="chat" element={<ChatRoom />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="certificate" element={<Certificate />} />
           <Route path="payment" element={<Payment />} />
-          <Route path="course/:token" element={<CourseViewer />} />
+          <Route path="learn/:enrollmentId" element={<CoursePlayer />} />
         </Route>
       </Routes>
 

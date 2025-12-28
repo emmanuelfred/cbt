@@ -1,10 +1,11 @@
 // --- Courses.jsx ---
 import React, { useEffect, useState } from "react";
-import { usecourseStore } from "../Store/courseStore";
+
 import Coursecard from "./Coursecard";
+import { useCourseStore } from "../Store/courseStore";
 
 function Courses() {
-  const { courses, fetchRecommendedCourses, loading, error } = usecourseStore();
+  const { courses, fetchRecommendedCourses, loading, error } = useCourseStore();
   const [groupedCourses, setGroupedCourses] = useState({});
   const [activeCategory, setActiveCategory] = useState("");
 

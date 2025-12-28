@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import { useCbtstore } from '../../Store/cbtStore'
 import { useAuthStore } from '../../Store/authStore'
-import { usecourseStore } from '../../Store/courseStore';
+import { useCourseStore } from '../../Store/courseStore';
 import RecommendedExams from '../../Component/RecommendedExams';
 import RecommendedCourses from '../../Component/RecommendedCourses';
 
@@ -20,7 +20,7 @@ function TrackProgress() {
     expiredEnrollments,
     completedEnrollments,
     loading,
-  } = usecourseStore();
+  } = useCourseStore();
   console.log( completedEnrollments, activeEnrollments);
     console.log("Enrollment Stats:", enrollmentStats);
 
@@ -74,10 +74,7 @@ function TrackProgress() {
         </div>
         <RecommendedExams userId={user} />
       </div>
-      <div className="recommended-cbt">
-       
-        <RecommendedCourses />
-      </div>
+     
     
     </>
     

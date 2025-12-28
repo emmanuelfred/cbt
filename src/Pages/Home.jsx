@@ -26,22 +26,21 @@ function Home() {
       <div data-aos="fade-up">
         <Hero />
       </div>
-
-      <div data-aos="fade-up" data-aos-delay="100">
-        <Servivice />
+       <div data-aos="fade-up" data-aos-delay="300">
+        <Whyus />
       </div>
+
+    
 
       <div data-aos="fade-up" data-aos-delay="200">
         <AboutUs />
       </div>
 
-      <div data-aos="fade-up" data-aos-delay="300">
-        <Whyus />
-      </div>
+     {/*
 
       <div data-aos="fade-up" data-aos-delay="400">
         <Courses />
-      </div>
+      </div>*/}
 
       <div data-aos="fade-up" data-aos-delay="500">
         <AvailableCBT />
@@ -53,6 +52,9 @@ function Home() {
 
       <div data-aos="fade-up" data-aos-delay="700">
         <FAQSection />
+      </div>
+        <div data-aos="fade-up" data-aos-delay="100">
+        <Servivice />
       </div>
 
       <div data-aos="fade-up" data-aos-delay="800">

@@ -12,6 +12,7 @@ import {
   FaComments,
   FaMoneyBill,
   FaPen,
+  FaCertificate,
 } from 'react-icons/fa';
 import { FaArrowLeft } from "react-icons/fa"; 
 import { useAuthStore } from "../Store/authStore";
@@ -26,10 +27,12 @@ const Dashboard = () => {
   const menuItems = [
     { path: '/dashboard', label: 'Track Progress', icon: <FaHome /> },
     { path: '/dashboard/cbt', label: 'C B T Dashboard', icon: <FaPen /> },
-    { path: '/dashboard/active', label: 'Courses', icon: <FaBook /> },
+    /*{ path: '/dashboard/active', label: 'Courses', icon: <FaBook /> },
+    { path: '/dashboard/certificate', label: 'Certificate', icon: <FaCertificate/> },
     { path: '/dashboard/chat', label: 'Chat Room', icon: <FaComments /> },
+     { path: '/dashboard/payment', label: ' Subscription', icon: <FaMoneyBill /> },*/
     { path: '/dashboard/profile', label: 'Profile', icon: <FaUser /> },
-    { path: '/dashboard/payment', label: ' Subscription', icon: <FaMoneyBill /> },
+    
     { path: '/home', label: 'Back To Home Page', icon: <FaArrowLeft /> }
   ];
   if (!isAuthenticated || !user) {
@@ -112,7 +115,7 @@ const Dashboard = () => {
                 alt="User"
                 className="rounded-full w-10 h-10"
               />
-              <span className="font-medium text-gray-500 hidden sm:block">{user.name}</span>
+              
             </div>
           </div>
         </div>

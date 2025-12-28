@@ -34,8 +34,11 @@ const Header = () => {
           <a href="/home#why" className="text-gray-700 hover:text-[#0C6F89] font-medium">
             Why Choose Us
           </a>
-          <a href="/courses" className="text-gray-700 hover:text-[#0C6F89] font-medium">
+          {/*<a href="/courses" className="text-gray-700 hover:text-[#0C6F89] font-medium">
             Courses
+          </a>*/}
+          <a href="/home#contact" className="text-gray-700 hover:text-[#0C6F89] font-medium">
+            Contact
           </a>
           <a href="/start_cbt" className="text-gray-700 hover:text-[#0C6F89] font-medium">
             CBT
@@ -85,8 +88,11 @@ const Header = () => {
           <a href="/home#why" className="text-gray-700 hover:text-[#0C6F89] font-medium">
             Why Choose Us
           </a>
-          <a href="/courses" className="text-gray-700 hover:text-[#0C6F89] font-medium">
+          {/*<a href="/courses" className="text-gray-700 hover:text-[#0C6F89] font-medium">
             Courses
+          </a>*/}
+           <a href="/home#contact" className="text-gray-700 hover:text-[#0C6F89] font-medium">
+            Contact
           </a>
           <a href="/start_cbt" className="text-gray-700 hover:text-[#0C6F89] font-medium">
             CBT

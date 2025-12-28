@@ -4,7 +4,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Coursecard from "./Coursecard";
-import { usecourseStore } from "../Store/courseStore";
+import { useCourseStore } from "../Store/courseStore";
 
 function RecommendedCourses() {
   const { courses, fetchRecommendedCourses, loading, error } = usecourseStore();

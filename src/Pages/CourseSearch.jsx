@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Search } from "lucide-react";
-import { usecourseStore } from "../Store/courseStore";
+import { useCourseStore } from "../Store/courseStore";
 import Coursecard from "../Component/Coursecard";
 
 function CourseSearchPage() {
-  const { courses, fetchRecommendedCourses, loading, error } = usecourseStore();
+  const { courses, fetchRecommendedCourses, loading, error } = useCourseStore();
   const [groupedCourses, setGroupedCourses] = useState({});
   const [activeCategory, setActiveCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
