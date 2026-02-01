@@ -28,7 +28,7 @@ function Hero() {
   <div className="flex flex-wrap gap-4 mt-6 justify-center md:justify-start">
     {/* Take CBT Button */}
     <a
-      href="./start_cbt"
+      href="/start_cbt"
       className="bg-[#0C6F89] hover:bg-[#014925] text-white font-semibold py-3 px-6 rounded-full transition duration-300 shadow-md"
     >
       Start Practice Test
