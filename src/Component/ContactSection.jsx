@@ -90,7 +90,7 @@ const ContactSection = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Mail className="text-[#0C6F89]" />
-                  <span className="text-gray-700">info@cbtcenter.com</span>
+                  <span className="text-gray-700">support@edenitesacademy.com</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="text-[#0C6F89]" />

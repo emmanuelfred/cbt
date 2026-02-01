@@ -95,10 +95,10 @@ const Footer = () => {
           <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
           <ul className="space-y-3 text-gray-200">
             <li className="flex items-center gap-3">
-              <Mail size={18} /> info@cbtcenter.com
+              <Mail size={18} /> support@edenitesacademy.com
             </li>
             <li className="flex items-center gap-3">
-              <Phone size={18} /> +234 806 190 9461
+              <Phone size={18} /> +234 706 133 5767
             </li>
             <li className="flex items-center gap-3">
               <MapPin size={18} /> 21 Afikpo Rd, Abakaliki, Nigeria
@@ -135,8 +135,17 @@ const Footer = () => {
       </div>
 
       {/* Bottom Line */}
-      <div className="border-t border-white/20 mt-10 pt-6 text-center text-gray-200 text-sm relative z-10">
+      <div className="border-t border-white/20 mt-10 pt-6 text-gray-200 text-sm relative z-10 flex justify-between items-center max-w-7xl mx-auto px-6">
+      <p>
         © {new Date().getFullYear()} CBT Center. All rights reserved.
+
+      </p>
+        
+        <div className=" text-right ">
+          <a href="/terms" className="hover:underline">Terms & Conditions</a>
+<a href="/privacy" className="hover:underline ml-4">Privacy Policy</a>
+
+        </div>
       </div>
     </footer>
   );

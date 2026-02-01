@@ -30,6 +30,8 @@ import CoursePlayer from './Pages/Dashboard/CoursePlayer';
 import { Toaster } from "react-hot-toast";
 import MyCourses from './Pages/Dashboard/MyCourses';
 import Certificate from './Pages/Dashboard/Certificate';
+import Terms from './Pages/Terms';
+import Privacy from './Pages/Privacy';
 
 
 function App() {
@@ -68,6 +70,8 @@ function App() {
         
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetail />} />
+        <Route path="/terms" element={<Terms/>} />
+        <Route path="/privacy" element={<Privacy />} />
 
         {/* Dashboard Nested Routes */}
         <Route path="/dashboard/*" element={<Dashboard />}>
@@ -80,6 +84,7 @@ function App() {
           <Route path="certificate" element={<Certificate />} />
           <Route path="payment" element={<Payment />} />
           <Route path="learn/:enrollmentId" element={<CoursePlayer />} />
+          
         </Route>
       </Routes>
 

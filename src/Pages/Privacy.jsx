@@ -1,0 +1,93 @@
+import React from "react";
+
+const Privacy = () => {
+  return (
+    <div className="bg-gray-50 min-h-screen py-12 px-4">
+      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow p-8">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          Privacy Policy
+        </h1>
+        <p className="text-sm text-gray-500 mb-8">
+          Effective Date: January 2026
+        </p>
+
+        <section className="space-y-6 text-gray-700 leading-relaxed">
+          <p>
+            Edenites Academy values your privacy. This Privacy Policy explains
+            how we collect, use, and protect your personal information.
+          </p>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">
+              1. Information We Collect
+            </h2>
+            <p>
+              We may collect personal details such as your name, email address,
+              phone number, and account information when you register or use our
+              services.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">
+              2. How We Use Your Information
+            </h2>
+            <p>
+              Your information is used to provide our services, improve user
+              experience, communicate updates, and process payments where
+              applicable.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">3. Cookies</h2>
+            <p>
+              We use cookies to analyze traffic and improve our website. You
+              can disable cookies in your browser settings.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">
+              4. Data Protection
+            </h2>
+            <p>
+              We implement reasonable security measures to protect your data.
+              However, no online platform can guarantee absolute security.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">
+              5. Third-Party Services
+            </h2>
+            <p>
+              We may share limited data with trusted third-party services such
+              as payment processors and analytics providers.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">
+              6. Children’s Privacy
+            </h2>
+            <p>
+              Our services are not intended for children under the age of 13.
+              We do not knowingly collect data from minors.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">7. Contact Us</h2>
+            <p>
+              If you have any questions about this Privacy Policy, contact us at{" "}
+              <strong>support@edenitesacademy.com</strong>.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default Privacy;
