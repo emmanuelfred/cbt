@@ -75,10 +75,7 @@ function ProfileDropdown() {
               className="w-9 h-9 rounded-full object-cover"
               onClick={toggleDropdown}
             />
-            <div className="relative">
-              <FaBell size={24} className="text-gray-600 cursor-pointer" />
-              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full"></span>
-            </div>
+           
           </button>
 
           {/* Dropdown Menu */}

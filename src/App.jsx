@@ -32,6 +32,7 @@ import MyCourses from './Pages/Dashboard/MyCourses';
 import Certificate from './Pages/Dashboard/Certificate';
 import Terms from './Pages/Terms';
 import Privacy from './Pages/Privacy';
+import DeleteAccount from './Pages/DeleteAccount';
 
 
 function App() {
@@ -72,6 +73,7 @@ function App() {
         <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/terms" element={<Terms/>} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/delete_account" element={<DeleteAccount />} />
 
         {/* Dashboard Nested Routes */}
         <Route path="/dashboard/*" element={<Dashboard />}>
