@@ -73,7 +73,7 @@ function App() {
         <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/terms" element={<Terms/>} />
         <Route path="/privacy" element={<Privacy />} />
-        <Route path="/delete_account" element={<DeleteAccount />} />
+        <Route path="/deleteaccount" element={<DeleteAccount />} />
 
         {/* Dashboard Nested Routes */}
         <Route path="/dashboard/*" element={<Dashboard />}>
