@@ -16,32 +16,49 @@ export default function Dictionary() {
     setResult(null);
 
     try {
-      const res = await axios.get(
-        `https://api.allorigins.win/raw?url=${encodeURIComponent(
-          `https://api.dictionaryapi.dev/api/v2/entries/en/${word.toLowerCase()}`
-        )}`
-      );
+      // ✅ Using Datamuse API - Completely FREE, no API key needed!
+      const [definitionsRes, relatedRes] = await Promise.all([
+        // Get word definitions
+        axios.get(`https://api.datamuse.com/words?sp=${word.toLowerCase()}&md=dpr&max=1`, {
+          withCredentials: false
+        }),
+        // Get related words (synonyms, similar meaning)
+        axios.get(`https://api.datamuse.com/words?ml=${word.toLowerCase()}&max=10`, {
+          withCredentials: false
+        })
+      ]);
 
-      const data = JSON.parse(JSON.stringify(res.data));
-      if (Array.isArray(data) && data.length > 0) {
-        setResult(data[0]);
+      if (definitionsRes.data.length > 0) {
+        const wordData = definitionsRes.data[0];
+        setResult({
+          word: wordData.word,
+          definitions: wordData.defs || [],
+          pronunciation: wordData.tags?.find(t => t.startsWith("pron:"))?.replace("pron:", "") || null,
+          synonyms: relatedRes.data.map(w => w.word).slice(0, 10)
+        });
       } else {
-        setError("No definitions found for this word.");
+        setError("Word not found. Try another one.");
       }
     } catch (err) {
       console.error("Error fetching word:", err);
-      if (err.response && err.response.status === 404) {
-        setError("Word not found. Try another one.");
-      } else {
-        setError("An error occurred while fetching data.");
-      }
+      setError("An error occurred while fetching data.");
     } finally {
       setLoading(false);
     }
   };
 
+  // Parse definition string (format: "pos\tdefinition")
+  const parseDefinition = (defString) => {
+    if (!defString) return { partOfSpeech: "", definition: "" };
+    const parts = defString.split("\t");
+    return {
+      partOfSpeech: parts[0] || "",
+      definition: parts[1] || defString
+    };
+  };
+
   return (
-    <div className="" style={{minHeight:350,maxHeight:550, overflowX:'hidden'}}>
+    <div style={{ minHeight: 350, maxHeight: 550, overflowY: "auto", overflowX: "hidden" }}>
       <h2 className="text-2xl font-bold mb-4 text-center">Dictionary App</h2>
 
       <form onSubmit={handleSearch} className="flex mb-6">
@@ -54,7 +71,7 @@ export default function Dictionary() {
         />
         <button
           type="submit"
-          className="bg-[#0C6F89] text-white px-6 py-3 rounded-r-lg hover:bg-[#0C6F89]-600 font-semibold"
+          className="bg-[#0C6F89] text-white px-6 py-3 rounded-r-lg hover:bg-[#0a5a6e] font-semibold"
         >
           Search
         </button>
@@ -66,38 +83,54 @@ export default function Dictionary() {
       {result && (
         <div>
           <h3 className="text-3xl font-bold mb-2 capitalize">{result.word}</h3>
-          {result.phonetic && (
-            <p className="text-gray-400 mb-4">Phonetic: {result.phonetic}</p>
+          
+          {result.pronunciation && (
+            <p className="text-gray-400 mb-4">
+              Pronunciation: {result.pronunciation}
+            </p>
           )}
 
-          {result.meanings?.map((meaning, i) => (
-            <div key={i} className="mb-4">
-              <h4 className="text-lg font-semibold text-[#0C6F89]">
-                {meaning.partOfSpeech}
-              </h4>
-              {meaning.definitions.map((def, j) => (
-                <div key={j} className="ml-4 mb-2">
-                  <p>• {def.definition}</p>
-                  {def.example && (
-                    <p className="text-gray-400 italic">
-                      Example: {def.example}
-                    </p>
-                  )}
-                  {def.synonyms?.length > 0 && (
-                    <p className="text-gray-300">
-                      <span className="font-semibold">Synonyms:</span>{" "}
-                      {def.synonyms.join(", ")}
-                    </p>
-                  )}
-                </div>
-              ))}
+          {/* Definitions */}
+          {result.definitions && result.definitions.length > 0 ? (
+            <div className="mb-4">
+              <h4 className="text-lg font-semibold text-[#0C6F89] mb-2">Definitions</h4>
+              {result.definitions.map((def, i) => {
+                const parsed = parseDefinition(def);
+                return (
+                  <div key={i} className="ml-4 mb-3 border-b border-gray-700 pb-2">
+                    {parsed.partOfSpeech && (
+                      <span className="text-sm font-semibold text-gray-300 italic">
+                        ({parsed.partOfSpeech})
+                      </span>
+                    )}
+                    <p className="mt-1">• {parsed.definition}</p>
+                  </div>
+                );
+              })}
             </div>
-          ))}
+          ) : (
+            <p className="text-gray-400 text-sm mb-4">
+              Full definition not available. Showing related words below.
+            </p>
+          )}
 
-          {result.phonetics?.[0]?.audio && (
-            <audio controls className="mt-4">
-              <source src={result.phonetics[0].audio} type="audio/mp3" />
-            </audio>
+          {/* Synonyms / Related Words */}
+          {result.synonyms && result.synonyms.length > 0 && (
+            <div>
+              <h4 className="text-lg font-semibold text-[#0C6F89] mb-2">
+                Similar Words & Synonyms
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {result.synonyms.map((syn, i) => (
+                  <span
+                    key={i}
+                    className="bg-[#0C6F89] text-white px-3 py-1 rounded-full text-sm"
+                  >
+                    {syn}
+                  </span>
+                ))}
+              </div>
+            </div>
           )}
         </div>
       )}

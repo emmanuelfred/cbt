@@ -82,7 +82,7 @@ const ContactSection = () => {
           {/* Right - Contact Info + Map */}
           <div className="flex flex-col gap-6" data-aos="fade-up" data-aos-delay="200">
             {/* Contact Info */}
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#0c70891c]">
+            <div className="bg-white p-4 md:p-8 rounded-2xl shadow-lg border border-[#0c70891c]">
               <h3 className="text-2xl font-semibold text-[#0C6F89] mb-4">
                 Contact Information
               </h3>
